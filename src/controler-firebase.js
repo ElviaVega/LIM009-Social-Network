@@ -2,20 +2,24 @@
 
 export const signUp = (email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password)}
-  /* Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ... */
-  
-
-  
+    
   /* Acceso a usuarios existentes */
 
 export const signIn = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)}
-    /* Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    ... */
+  
+  /* Acceso con google */  
+
+export const signInGoogle = () => {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(provider)
+};
+/* cerrar sesion*/
+
+export const singOut = () => {
+   return firebase.auth().signOut()
+  }
+
+
   
  
