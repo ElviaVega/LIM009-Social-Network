@@ -6,44 +6,48 @@ const changeHash = (hash) => {
 };
 
 export const logInOnSubmit= () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email = document.getElementById('email')
+  const password = document.getElementById('password')
   if (email === '' || password === '') {
     alert('Ingresa tus datos para iniciar sesión');
   } else {
-    signIn(email, password)
+    signIn(email.value, password.value)
     .then(() => changeHash('/welcome'))
     .catch(function(error) {
+      email.value = '';
+      password.value = '';
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        /*if (errorCode == 'auth/invalid-email') {
+        if (errorCode == 'auth/invalid-email') {
           alert('El correo es inválido')
         } else if (errorCode == 'auth/wrong-password') {
           alert('La contraseña es equivocada.')
         }  else {
           alert('Usuario no registrado')
         }
-        console.log(errorMessage);*/
+        console.log(errorMessage);
       });
     }
   } 
 
 
 export const signUpUser = () => {
-  const email = document.querySelector('#email2').value;
-  const password = document.querySelector('#password2').value;
-  if (email === '' || password === '') {
-    alert('Ingresa tus datos para registrarte');
-    console.log(email);
-    console.log(password);
+  const email = document.querySelector('#email2');
+  const password = document.querySelector('#password2');
+  if (email.value === '' || password.value === ''){
+    alert('Ingresa tus datos para registrarte');   
   } else {
-    signUp(email, password)
+    signUp(email.value, password.value)
     .then(() => observer())
     .catch(function(error) {
+      email.value = '';
+      password.value = '';
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      if (errorCode == 'auth/invalid-email') 
+        alert('El correo es inválido')          
       console.log(errorCode); 
       console.log(errorMessage);
     });

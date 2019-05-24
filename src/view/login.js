@@ -23,11 +23,7 @@ export default () => {
     const btnGoogle = formLogin.querySelector('#btn-google');
     btnGoogle.addEventListener('click', logInGoogle);
     
-    return formLogin;
-
-    
-    
-        
+    return formLogin;     
     
 };
 
