@@ -8,8 +8,9 @@ const changeHash = (hash) => {
 export const logInOnSubmit= () => {
   const email = document.getElementById('email')
   const password = document.getElementById('password')
-  if (email === '' || password === '') {
-    alert('Ingresa tus datos para iniciar sesión');
+  const msjError = document.getElementById('error');
+  if (email.value=== '' || password.value === '') {
+    msjError.innerHTML = 'Ingresa tus datos para iniciar sesión';
   } else {
     signIn(email.value, password.value)
     .then(() => changeHash('/welcome'))
@@ -18,15 +19,14 @@ export const logInOnSubmit= () => {
       password.value = '';
         // Handle Errors here.
         var errorCode = error.code;
-        var errorMessage = error.message;
+        //var errorMessage = error.message;
         if (errorCode == 'auth/invalid-email') {
-          alert('El correo es inválido')
+          msjError.innerHTML = 'correo no valido,intente nuevamente'          
         } else if (errorCode == 'auth/wrong-password') {
-          alert('La contraseña es equivocada.')
+          msjError.innerHTML = 'La contraseña es equivocada.'
         }  else {
-          alert('Usuario no registrado')
+          msjError.innerHTML='Usuario no registrado'
         }
-        console.log(errorMessage);
       });
     }
   } 
@@ -35,8 +35,9 @@ export const logInOnSubmit= () => {
 export const signUpUser = () => {
   const email = document.querySelector('#email2');
   const password = document.querySelector('#password2');
+  const msjError = document.getElementById('error');
   if (email.value === '' || password.value === ''){
-    alert('Ingresa tus datos para registrarte');   
+    msjError.innerHTML= 'Ingresa tus datos para registrarte';   
   } else {
     signUp(email.value, password.value)
     .then(() => observer())
@@ -46,15 +47,14 @@ export const signUpUser = () => {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      if (errorCode == 'auth/invalid-email') 
-        alert('El correo es inválido')          
-      console.log(errorCode); 
-      console.log(errorMessage);
+      if (errorCode === 'auth/invalid-email'){
+        const msjError = document.getElementById('error');
+         msjError.innerHTML = 'correo no valido'};          
+        console.log(errorCode); 
+        console.log(errorMessage);
     });
   }
 }  
-
-
 /* acceso con google*/
 export const logInGoogle = () => {
   signInGoogle()

@@ -5,9 +5,10 @@ export default () => {
     const tmpLogin = `
 
         <form>
-        <input type="email" id="email" placeholder ="Email"/>
-        <input type="password" id="password" placeholder ="Password"/>
-        <button type="button" id="btn-login">Log in</button>
+        <input type='email' id='email' placeholder ='Email'/>
+        <input type='password' id='password' placeholder ='Password'/>
+        <button type='button' id='btn-login'>Log in</button>
+        <p id='error'></p>
         <p> O bien ingresa con: </p>
         <a  id='btn-google'>
 			<img src='./imagen/logo-google.png' alt="Google" class='logo-google'>
