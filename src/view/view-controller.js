@@ -6,51 +6,55 @@ const changeHash = (hash) => {
 };
 
 export const logInOnSubmit= () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  if (email === '' || password === '') {
-    alert('Ingresa tus datos para iniciar sesión');
+  const email = document.getElementById('email')
+  const password = document.getElementById('password')
+  const msjError = document.getElementById('error');
+  if (email.value=== '' || password.value === '') {
+    msjError.innerHTML = 'Ingresa tus datos para iniciar sesión';
   } else {
-    signIn(email, password)
+    signIn(email.value, password.value)
     .then(() => changeHash('/welcome'))
     .catch(function(error) {
+      email.value = '';
+      password.value = '';
         // Handle Errors here.
         var errorCode = error.code;
-        var errorMessage = error.message;
-        /*if (errorCode == 'auth/invalid-email') {
-          alert('El correo es inválido')
+        //var errorMessage = error.message;
+        if (errorCode == 'auth/invalid-email') {
+          msjError.innerHTML = 'correo no valido,intente nuevamente'          
         } else if (errorCode == 'auth/wrong-password') {
-          alert('La contraseña es equivocada.')
+          msjError.innerHTML = 'La contraseña es equivocada.'
         }  else {
-          alert('Usuario no registrado')
+          msjError.innerHTML='Usuario no registrado'
         }
-        console.log(errorMessage);*/
       });
     }
   } 
 
 
 export const signUpUser = () => {
-  const email = document.querySelector('#email2').value;
-  const password = document.querySelector('#password2').value;
-  if (email === '' || password === '') {
-    alert('Ingresa tus datos para registrarte');
-    console.log(email);
-    console.log(password);
+  const email = document.querySelector('#email2');
+  const password = document.querySelector('#password2');
+  const msjError = document.getElementById('error');
+  if (email.value === '' || password.value === ''){
+    msjError.innerHTML= 'Ingresa tus datos para registrarte';   
   } else {
-    signUp(email, password)
+    signUp(email.value, password.value)
     .then(() => observer())
     .catch(function(error) {
+      email.value = '';
+      password.value = '';
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorCode); 
-      console.log(errorMessage);
+      if (errorCode === 'auth/invalid-email'){
+        const msjError = document.getElementById('error');
+         msjError.innerHTML = 'correo no valido'};          
+        console.log(errorCode); 
+        console.log(errorMessage);
     });
   }
 }  
-
-
 /* acceso con google*/
 export const logInGoogle = () => {
   signInGoogle()
