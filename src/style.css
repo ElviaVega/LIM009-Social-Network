@@ -4,22 +4,32 @@
     margin: 0;
     padding: 0;  
 }
-body{
+
+body {
+    background:  -webkit-linear-gradient(top, rgb(87, 235, 255,0.8) 0%, rgba(210,255,87,0.8) 50%, rgb(109, 214, 10) 100%);
+          
+    /*
     opacity: 1 ;   
     background-image: url('./imagen/fondo-pantalla.jpg');
     background-size: cover;
-    background-attachment: fixed;   
+    background-attachment: fixed;
+    */   
 }
-.form {
-    width: 60%;
+    
+.container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+   
+}
+
+form {
+   
     background: grey;
 }
-.align-center{  
-    align-items:center;
-}
-.display-block {
-    display: block;
-}
+
 .logo-google {
     width: 80px;
+    
 }

@@ -3,8 +3,8 @@ import { logInOnSubmit, logInGoogle } from "./view-controller.js";
 export default () => {
     const formLogin  = document.createElement("div");
     const tmpLogin = `
-
-        <form>
+        <div>
+        <form class=''>
         <input type='email' id='email' placeholder ='Email'/>
         <input type='password' id='password' placeholder ='Password'/>
         <button type='button' id='btn-login'>Log in</button>
