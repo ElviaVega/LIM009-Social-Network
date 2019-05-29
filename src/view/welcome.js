@@ -7,10 +7,12 @@ export default () => {
         <header>
             <ul class='header'>
                 <li><a id='sign-out'>Cerrar Sesión</a></li>
+                <li> perfil</li>
+                <li> Consejos viajeros </li>
             </ul>
         </header>
         <h2> Bienvenido </h2>
-        </div>
+        </div>       
         `
         formWelcome.innerHTML = tmpWelcome;
         const btnSignOut = formWelcome.querySelector('#sign-out');

@@ -30,6 +30,9 @@ form {
 }
 
 .logo-google {
-    width: 80px;
-    
+    width: 80px;    
+}
+
+.block {
+    display: block;
 }

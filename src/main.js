@@ -1,5 +1,4 @@
 import {initRouter} from './router.js'
-import {observer} from './view/view-controller.js'
 
 // Este es el punto de entrada de tu aplicacion
 // Your web app's Firebase configuration
@@ -22,6 +21,5 @@ const init = () => {
 initRouter();
 //observer();
 }
-
-  
+ 
   window.onload = init();

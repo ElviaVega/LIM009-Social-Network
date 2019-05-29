@@ -4,9 +4,10 @@ export default () => {
     const formRegister  = document.createElement("div");
     const tmpRegister = `
         <form>
-        <input type='email' id='email2' placeholder ='Email'/>
-        <input type='password' id='password2' placeholder ='Password'/>
-        <button type='button' id='btn-signup'>Sign Up</button>
+        <input type='text' id='name' placeholder ='Nombre y apellido' class='block'/>
+        <input type='email' id='email2' placeholder ='Email' class='block'/>
+        <input type='password' id='password2' placeholder ='Password'class='block'/>
+        <button type='button' id='btn-signup' class='block'>Sign Up</button>
         <p id='error'></p>
         <p>Ya tienes una cuenta <span><a href='#/login'>Inicia Sesion</a></span></p>
         </form>

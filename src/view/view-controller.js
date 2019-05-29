@@ -1,4 +1,4 @@
-import {signIn, signUp, signInGoogle, singOut} from '../controler-firebase.js'
+import {signIn, signUp, signInGoogle, singOut, setUsers} from '../controler-firebase.js'
 
 const changeHash = (hash) => {
   location.hash = hash;
@@ -13,7 +13,11 @@ export const logInOnSubmit= () => {
     msjError.innerHTML = 'Ingresa tus datos para iniciar sesión';
   } else {
     signIn(email.value, password.value)
-    .then(() => changeHash('/welcome'))
+    .then((result) => {
+      console.log(result);
+      observer();
+      //changeHash('/welcome')          
+    })
     .catch(function(error) {
       email.value = '';
       password.value = '';
@@ -40,7 +44,20 @@ export const signUpUser = () => {
     msjError.innerHTML= 'Ingresa tus datos para registrarte';   
   } else {
     signUp(email.value, password.value)
-    .then(() => observer())
+    .then((result) => {
+      observer()
+      console.log(result.user.uid);
+      console.log(result.user);
+
+      const name = document.getElementById('name').value;
+      console.log(name);
+      return setUsers('users', result.user.uid, {
+        id: result.user.uid,
+        name: name,
+        email: result.user.email,
+        photo: null
+      })              
+    })
     .catch(function(error) {
       email.value = '';
       password.value = '';
@@ -49,11 +66,11 @@ export const signUpUser = () => {
       var errorMessage = error.message;
       if (errorCode === 'auth/invalid-email'){
         const msjError = document.getElementById('error');
-         msjError.innerHTML = 'correo no valido'};          
+        msjError.innerHTML = 'correo no valido'};          
         console.log(errorCode); 
         console.log(errorMessage);
     });
-  }
+  }      
 }  
 /* acceso con google*/
 export const logInGoogle = () => {
@@ -62,15 +79,20 @@ export const logInGoogle = () => {
     var token = result.credential.accessToken;
     console.log(token);
     const user = result.user;
-    console.log(user);
+    console.log(user.displayName);
     observer()
+    return setUsers('users', result.user.uid, {
+      id: user.uid,
+      name: user.displayName,
+      email: user.email
+    })      
     //changeHash('/welcome')
   })
 }
 
 /* Identificar si el usuario esta activo o no*/
 
-export const observer = () =>{
+const observer = () =>{
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log('usuario activo')
@@ -81,8 +103,8 @@ export const observer = () =>{
       console.log('usuario no activo')
     }
   });
-
 }
+
 
 /* Cerrar sesion */
 
@@ -96,13 +118,8 @@ export const logOut = () => {
     console.log(errorCode);
     console.log(errorCode);
   });
-  
-  /*singOut().then(() => changeHash('/login'))
-  .catch(error => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorCode);
-  })*/
 }
+
+
+  
   
