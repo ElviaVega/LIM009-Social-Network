@@ -21,23 +21,59 @@ export const singOut = () => {
    return firebase.auth().signOut()
   }
 
-
+// coleccion de usuario
 export const setUsers = (nameCollection, docId, obj) => {
-  return firebase.firestore().collection(nameCollection).doc(docId).set(obj)
+  return firebase.firestore().collection("nameCollection").doc(docId).set(obj)
 }
-  /*
-  db.collection("cities").doc("new-city-id").set(data);
- var db = firebase.firestore() 
-  db.collection("users").add({
-  name: "Ada",
-  lastname: "Lovelace",
-  email: 1815,
-  photo: url
-})
-.then(function(docRef) {
-  console.log("Document written with ID: ", docRef.id);
+// traer un documento de la coleccion user
+export const getUser = (uidUser) => {
+  const collectionUser = firebase.firestore().collection('users').doc(`${uidUser}`)
+  collectionUser.get()
+  .then((documento) => {
+    if ((documento.exists)) {
+      console.log(documento.data())
+    } else {
+      console.log("No existe documento")
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+}
+
+  
+// coleccion de post
+export const setPost = (obj) =>{
+  return firebase.firestore().collection("post").add(obj)
+}
+
+/* Obtener información del usuarios activo */
+
+export const inforUserActiv = () => {
+  const user = firebase.auth().currentUser;
+  return user;  
+}
+
+/*leer datos de la coleccion user */
+
+/* export const getFirestore = (collection,userId) => {
+  return firebase.firestore().collection(collection).doc(userId).get();
+}
+
+ */
+/* export const setUsers = (user) => {
+  const db = firebase.firestore()
+  db.collection('users').doc(`${user.uid}`).set({
+    name: user.displayName,
+    email: user.email,
+    photoUrl: user.photoURL,
+    uid: user.uid
+  })
+.then(function() {
+  console.log("Document successfully written!");
 })
 .catch(function(error) {
-  console.error("Error adding document: ", error);
+  console.error("Error writing document: ", error);
 });
-*/
+} */
+
+

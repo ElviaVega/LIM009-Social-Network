@@ -19,8 +19,8 @@ body {
 .container {
         min-height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        /*align-items: center;
+        justify-content: center;*/
    
 }
 
@@ -35,4 +35,13 @@ form {
 
 .block {
     display: block;
+}
+
+.menu-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    list-style: none;
 }
