@@ -19,47 +19,81 @@ export const signInGoogle = () => {
 
 export const singOut = () => {
    return firebase.auth().signOut()
-  }
+};
 
-// coleccion de usuario
+/* identica si hay o no usuario activo 
+
+export const userActv = (user) => {
+  return firebase.auth().onAuthStateChanged(user);
+}; 
+*/ 
+
+/* coleccion de usuario */
+
 export const setUsers = (nameCollection, docId, obj) => {
-  return firebase.firestore().collection("nameCollection").doc(docId).set(obj)
+  return firebase.firestore().collection(nameCollection).doc(docId).set(obj)
 }
-// traer un documento de la coleccion user
-export const getUser = (uidUser) => {
-  const collectionUser = firebase.firestore().collection('users').doc(`${uidUser}`)
-  collectionUser.get()
-  .then((documento) => {
-    if ((documento.exists)) {
-      console.log(documento.data())
-    } else {
-      console.log("No existe documento")
-    }
+
+/* identificar al usuario que accedio a la aplicacion*/
+
+export const userAcces = () => {
+  return firebase.auth().currentUser;
+ 
+}
+
+/* obtener el usuario activo desde coleccion users */
+
+export const userFirestore = (id) => {
+   return firebase.firestore().collection("users").doc(id).get();
+}
+
+
+
+
+
+/* leer datos desde firestore
+export const readData = (nameCollection) => {
+  userAcces()
+  return firebase.firestore().collection(nameCollection).get()
+}
+*/
+
+/* leer y pintar en pantalla datos de una collecion 
+
+export const getUser = () => {
+  userAcces()
+  .then((user) =>{
+    const collectionUser = firebase.firestore().collection('users').doc(user.uid)
+    collectionUser.get()
+    .then((documento) => {
+      if ((documento.exists)) {
+        const name = document.querySelector('#username');
+        //const photo = document.querySelector('#photo')
+        name.innerHTML = documento.data().name
+        console.log(documento.data())
+      } else {
+        console.log("No existe documento")
+      }
+    })
+
   }).catch(function(error) {
     console.log("Error getting document:", error);
 });
 }
-
+*/
   
-// coleccion de post
+/* enviando post a coleccion de post */
 export const setPost = (obj) =>{
   return firebase.firestore().collection("post").add(obj)
 }
 
-/* Obtener información del usuarios activo */
+/*leer datos de la coleccion  */
 
-export const inforUserActiv = () => {
-  const user = firebase.auth().currentUser;
-  return user;  
+export const readData = (namecollection) => {
+  return firebase.firestore().collection(namecollection).onSnapShot();
 }
 
-/*leer datos de la coleccion user */
-
-/* export const getFirestore = (collection,userId) => {
-  return firebase.firestore().collection(collection).doc(userId).get();
-}
-
- */
+ 
 /* export const setUsers = (user) => {
   const db = firebase.firestore()
   db.collection('users').doc(`${user.uid}`).set({

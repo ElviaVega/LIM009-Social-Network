@@ -1,10 +1,11 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost, inforUserActiv } from '../controler-firebase.js'
-import { getUser } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, userFirestore, readData } from '../controler-firebase.js'
+
 
 const changeHash = (hash) => {
   location.hash = hash;
 
 };
+/* inicio de sesión */
 
 export const logInOnSubmit = () => {
   const email = document.getElementById('email')
@@ -36,7 +37,7 @@ export const logInOnSubmit = () => {
   }
 }
 
-
+/* Registro de usuario con email y contraseña */
 export const signUpUser = () => {
   const email = document.querySelector('#email2');
   const password = document.querySelector('#password2');
@@ -52,6 +53,7 @@ export const signUpUser = () => {
 
         const name = document.getElementById('name').value;
         console.log(name);
+
         return setUsers('users', result.user.uid, {
           id: result.user.uid,
           name: name,
@@ -59,7 +61,7 @@ export const signUpUser = () => {
           photo: null
         })
       })
-      .catch(function (error) {
+      .catch((error) => {
         email.value = '';
         password.value = '';
         // Handle Errors here.
@@ -74,12 +76,13 @@ export const signUpUser = () => {
       });
   }
 }
+
 /* acceso con google*/
 export const logInGoogle = () => {
   signInGoogle()
   .then((result)=>  {
     var token = result.credential.accessToken;
-    console.log(token);
+    console.log(token)
     const user = result.user;
     const nameUser = user.displayName;
     observer()
@@ -88,19 +91,15 @@ export const logInGoogle = () => {
       name: nameUser,
       email: user.email
     })      
-    changeHash('/welcome')
+    //changeHash('/welcome')
   })
-}
-
-
-
-
-
+ }
 
 /* Identificar si el usuario esta activo o no*/
 
+
 export const observer = () => {
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged( (user) => {
     if (user) {
       const uid = user.uid;
       /* getUser(uid) */
@@ -114,7 +113,6 @@ export const observer = () => {
     }
   });
 }
-
 
 /* Cerrar sesion */
 
@@ -130,72 +128,61 @@ export const logOut = () => {
     });
 }
 
-/* Obtener datos del usuario para imprimir en pantalla */
-/* 
-export const getData = (uid) => { */
-  //observer()
-  /* getFirestore("user", uid)
-    .then((doc) => {
-      if (doc.exists) {
-        console.log(doc.data()) */
-        /* let username = document.querySelector('#username');
-        let photoUser = document.querySelector('#photo');
-        username.innerHTML = doc.get("name");
-        photoUser.src = doc.get("photo"); */
-      /* } else { */
-        // console.log("No such document!");
-  /*     }
-    }).catch(function (error) {
-      console.log("Error :", error.message);
-    });
-} */
-
 /* crear post y enviarlo al firestore*/
 
 export const sendToCollection = () => {
   const post = document.querySelector('#post').value;
-  const objUser = inforUserActiv()
+  const objUser = userAcces();
   console.log(objUser);
-  let userPost = {
+    let userPost = {
     userId: objUser.uid,
     name: objUser.displayName,
     post: post,
-    fecha: null
+    fecha: null 
   }
+
   return setPost(userPost)
-    .then(function (docRef) {
+    .then( (docRef)  => {
       console.log(docRef)
+      
     })
     .catch(function (error) {
       console.error("Error adding document: ", error);
     });
-
+    
 }
 
-/* 
-/*
+/* Leer y pintar los post en pantalla */
 
-export const showPostEvent = (e) =>{
-  event.preventDefault()
-  const post = document.querySelector('#post').value;
-  collectionPost(post)
-  .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id);
-      // const uid = docRef.parent.firestore._firestoreClient.credentials.currentUser.uid;
+export const showPost = () => {
+  
+  readData("post")
+  const post1 = document.querySelector("post1")
+  querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().post}`);
+  });
+}
 
-    })
-    .catch(function (error) {
-      console.error("Error adding document: ", error);
-    });
+/* obtener datos de usuario activo */
+
+export const userData = () => {
+  const objUser = userAcces();
+  const uid = objUser.uid;
+  
+  userFirestore(uid)
+  .then((doc) => {
+    if (doc.exists) {
+      let username = formUserProfile.querySelector("#username")
+      let photo = formUserProfile.querySelector("#photo")
+      username.innerHTML = doc.get("name")
+      photo.innerHTML = doc.get("photo")
+  } 
+    }).catch((error) => {
+    console.log("Error getting document:", error);
+  });
 } 
-*/
-/* export const logInGoogle = () => {
-  signInGoogle()
-    .then((result) => {
-      
-      setUsers(result.user)
-      changeHash('/welcome')
-    })
-  }
 
-  observer() */
+
+
+
+ 
