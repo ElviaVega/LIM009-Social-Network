@@ -1,7 +1,7 @@
 import { sendToCollection } from "./view-controller.js";
 //import {readData} from "..controler-firebase.js/";
 
-export default () => {
+export default (userInfo) => {
     /* seccion dond se redacta el post */
     const formPost  = document.createElement("div");
     const tmpPost = `
@@ -21,7 +21,9 @@ export default () => {
     formPost.innerHTML = tmpPost;
    
     const btnCompartir = formPost.querySelector('#btn-compartir');
-    btnCompartir.addEventListener('click', sendToCollection);
+    btnCompartir.addEventListener('click', () => {
+        sendToCollection(userInfo)
+    });
 
    
      

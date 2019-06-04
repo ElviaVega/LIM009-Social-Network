@@ -3,7 +3,7 @@ import formPost from './post.js'
 import {logOut} from './view-controller.js'
 import userProfile from './userProfile.js';
 
-export default () => {
+export default (user) => {
     const formWelcome  = document.createElement("div");
     const tmpWelcome = `
         <div >
@@ -21,8 +21,8 @@ export default () => {
         </div>       
         `
         formWelcome.innerHTML = tmpWelcome;
-        formWelcome.appendChild(formPost());
-        formWelcome.appendChild(userProfile());
+        formWelcome.appendChild(formPost(user));
+        formWelcome.appendChild(userProfile(user));
         
         //formWelcome.appendChild(formPostCollection());
 

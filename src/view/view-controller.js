@@ -1,4 +1,4 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, userFirestore, readData } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, } from '../controler-firebase.js'
 
 
 const changeHash = (hash) => {
@@ -130,13 +130,13 @@ export const logOut = () => {
 
 /* crear post y enviarlo al firestore*/
 
-export const sendToCollection = () => {
+export const sendToCollection = (userData) => {
   const post = document.querySelector('#post').value;
-  const objUser = userAcces();
-  console.log(objUser);
+/*   const objUser = userAcces();
+  console.log(objUser); */
     let userPost = {
-    userId: objUser.uid,
-    name: objUser.displayName,
+    userId: userData.id,
+    name: userData.name,
     post: post,
     fecha: null 
   }
@@ -165,22 +165,13 @@ export const showPost = () => {
 
 /* obtener datos de usuario activo */
 
-export const userData = () => {
-  const objUser = userAcces();
-  const uid = objUser.uid;
-  
-  userFirestore(uid)
-  .then((doc) => {
-    if (doc.exists) {
-      let username = formUserProfile.querySelector("#username")
-      let photo = formUserProfile.querySelector("#photo")
-      username.innerHTML = doc.get("name")
-      photo.innerHTML = doc.get("photo")
-  } 
-    }).catch((error) => {
-    console.log("Error getting document:", error);
-  });
-} 
+export const userData = (cb) => {   
+  userActiv(user => {
+    userFirestore(user.uid)
+    .then(res => {cb(res.data())}
+    )  
+  })
+}
 
 
 

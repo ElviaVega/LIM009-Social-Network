@@ -39,7 +39,20 @@ export const setUsers = (nameCollection, docId, obj) => {
 export const userAcces = () => {
   return firebase.auth().currentUser;
  
-}
+};
+export const userActiv = (callback) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      callback(user)
+      console.log(user)
+    } else {
+      // No user is signed in.
+      console.log("no hay usuario activo")
+
+      }
+    });
+ };
+
 
 /* obtener el usuario activo desde coleccion users */
 
