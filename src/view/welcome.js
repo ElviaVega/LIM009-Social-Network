@@ -4,6 +4,7 @@ import {logOut} from './view-controller.js'
 import userProfile from './userProfile.js';
 
 export default (user) => {
+    console.log(user)
     const formWelcome  = document.createElement("div");
     const tmpWelcome = `
         <div >

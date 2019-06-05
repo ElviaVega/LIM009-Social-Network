@@ -78,5 +78,9 @@ export const readData = (namecollection) => {
   return firebase.firestore().collection(namecollection).onSnapShot();
 }
 
+/* borrar post */
+
+
+
  
 

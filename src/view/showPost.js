@@ -6,7 +6,8 @@ export default (post) => {
     const tmpshowPost = `
         <div>
             <header>
-               <p> Publicado por: </p>
+               <p> Publicado por: ${post.name} </p>
+               <p> ${post.post} </p>
                <button  id="btn-eliminar" type = "button" class="btn-eliminar" > &#xf410</button>
             </header>
 

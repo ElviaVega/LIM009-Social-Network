@@ -27,6 +27,7 @@ export const viewTmp = (routers) => {
 
     case 'welcome':
       userData(user => {
+        console.log(user)
       root.innerHTML = '';
       root.appendChild(components.welcome(user));
       })      

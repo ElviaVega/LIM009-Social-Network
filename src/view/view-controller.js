@@ -169,8 +169,11 @@ export const showPost = () => {
 
 export const userData = (cb) => {   
   userActiv(user => {
+    //console.log(user)
     userFirestore(user.uid)
-    .then(res => {cb(res.data())}
+    .then(res => {//console.log(res)
+      cb(res.data())
+    }
     )  
   })
 }
