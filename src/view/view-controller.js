@@ -132,13 +132,15 @@ export const logOut = () => {
 
 export const sendToCollection = (userData) => {
   const post = document.querySelector('#post').value;
+
 /*   const objUser = userAcces();
   console.log(objUser); */
     let userPost = {
     userId: userData.id,
     name: userData.name,
     post: post,
-    fecha: null 
+    date: null,
+    TypeofView: null, 
   }
 
   return setPost(userPost)
@@ -173,7 +175,6 @@ export const userData = (cb) => {
   })
 }
 
+/*pintar los post en pantalla */
 
 
-
- 

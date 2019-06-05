@@ -1,5 +1,5 @@
 import formPost from './post.js'
-//import formPostCollection from './postCollection.js'
+import showAllPosts from './showAllPosts.js'
 import {logOut} from './view-controller.js'
 import userProfile from './userProfile.js';
 
@@ -23,8 +23,9 @@ export default (user) => {
         formWelcome.innerHTML = tmpWelcome;
         formWelcome.appendChild(formPost(user));
         formWelcome.appendChild(userProfile(user));
-        
-        //formWelcome.appendChild(formPostCollection());
+        showAllPosts((postList) => {
+            formWelcome.appendChild(postList)
+        });
 
         const btnSignOut = formWelcome.querySelector('#sign-out');
         btnSignOut.addEventListener('click', logOut)
