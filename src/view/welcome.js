@@ -26,7 +26,7 @@ export default (user) => {
         formWelcome.appendChild(userProfile(user));
         showAllPosts((postList) => {
             formWelcome.appendChild(postList)
-        });
+        }, user);
 
         const btnSignOut = formWelcome.querySelector('#sign-out');
         btnSignOut.addEventListener('click', logOut)

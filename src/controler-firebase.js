@@ -80,7 +80,10 @@ export const readData = (namecollection) => {
 
 /* borrar post */
 
-
+export const deletePost = (idPost) => {
+  return firestore.firestore().collection("post").doc(idPost).delete()
+  .then(() =>{
+    
 
  
 

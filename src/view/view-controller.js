@@ -1,4 +1,4 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, deletePost } from '../controler-firebase.js'
 
 
 const changeHash = (hash) => {
@@ -157,7 +157,7 @@ export const sendToCollection = (userData) => {
 /* Leer y pintar los post en pantalla */
 
 export const showPost = () => {
-  
+
   readData("post")
   const post1 = document.querySelector("post1")
   querySnapshot.forEach((doc) => {
@@ -173,11 +173,26 @@ export const userData = (cb) => {
     userFirestore(user.uid)
     .then(res => {//console.log(res)
       cb(res.data())
-    }
-    )  
+    })  
   })
 }
 
-/*pintar los post en pantalla */
+/*borrar post creado por el usuario */
+
+export const deletePostUser = (idPost) => {
+  deletePost(idPost)
+  .then(() => {
+    console.log("Document successfully deleted!");
+  }).catch(function(error) {
+    console.error("Error removing document: ", error);
+  });
+}
+
+
+
+  
+
+
+
 
 
