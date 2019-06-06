@@ -81,9 +81,26 @@ export const readData = (namecollection) => {
 /* borrar post */
 
 export const deletePost = (idPost) => {
-  return firestore.firestore().collection("post").doc(idPost).delete()
-  .then(() =>{
-    
+  return firebase.firestore().collection("post").doc(idPost).delete()
+}
 
+/* editando post 
+
+export const editPost = (idPost) => {
+
+var postRef = firebase.firestore().collection("post").doc(idPost);
+
+// Set the "capital" field of the city 'DC'
+return postRef.update({
+    post: newPost
+})
+  .then(function() {
+      console.log("Document successfully updated!");
+  })
+  .catch(function(error) {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+  });
+}
  
-
+*/

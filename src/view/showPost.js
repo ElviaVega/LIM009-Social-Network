@@ -1,8 +1,8 @@
-//import { userActiv } from "../controler-firebase.js";
+import { deletePostUser } from "./view-controller.js";
 
 export default (post,user) => {
-    console.log(user.id)
-    console.log(post.idUser)
+    //console.log(user.id)
+    //console.log(post.id)
     
     const formshowPost  = document.createElement("div");
     const tmpshowPost = `
@@ -11,20 +11,23 @@ export default (post,user) => {
                <p> Publicado por: ${post.name} </p>
                <p> ${post.post} </p>
                ${post.idUser === user.id? `
-               <button  id="btn-eliminar" type = "button" class="btn-eliminar" > &#xf410</button>` : ""}
+               <button type = "button" class="btn-eliminar" > &#xf410</button>` : ""}
             </header>
 
             <p id ="post" > </p>
             ${post.idUser === user.id ? `
-            <button  id="btn-editar" type = "button" class="btn-editar" > Editar </button>` : ""}
+            <button type = "button" class="btn-editar" > Editar </button>` : ""}
             <button id="btn-like" type = "button"> me gusta </button>           
             
         </div>
         `
     formshowPost.innerHTML = tmpshowPost;
-   
-    const btnEliminar = formPost.querySelector('#id=btn-eliminar');
-    btnEliminar.addEventListener('click', deletePostUser);
+
+    const idPost = post.id;
+    if(post.idUser === user.id) {
+    const btnEliminar = formshowPost.querySelector('.btn-eliminar');
+    btnEliminar.addEventListener('click', () => deletePostUser(idPost));
+    }
      
     return formshowPost;     
 }

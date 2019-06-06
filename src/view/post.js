@@ -19,11 +19,13 @@ export default (user) => {
         </div>
         `
     formPost.innerHTML = tmpPost;
-   
     const btnCompartir = formPost.querySelector('#btn-compartir');
     btnCompartir.addEventListener('click', () => {
+        const textArea = formPost.querySelector("#post")
         sendToCollection(user)
-    });
+        textArea.value = ""
+        
+    });   
   
     return formPost;  
 

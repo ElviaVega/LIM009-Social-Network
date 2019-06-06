@@ -1,3 +1,4 @@
+/*
 import { getPost } from "../controler-firebase.js";
 import showPost from "./showPost.js"
 
@@ -14,5 +15,5 @@ export default (callback, user) => {
     })
 
 }
-
+*/
     

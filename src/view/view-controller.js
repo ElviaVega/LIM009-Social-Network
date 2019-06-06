@@ -183,7 +183,7 @@ export const deletePostUser = (idPost) => {
   deletePost(idPost)
   .then(() => {
     console.log("Document successfully deleted!");
-  }).catch(function(error) {
+  }).catch((error) => {
     console.error("Error removing document: ", error);
   });
 }
