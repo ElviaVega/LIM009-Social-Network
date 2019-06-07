@@ -5,17 +5,18 @@ En este proyecto construirás una red social, cuya temáticas dejaremos a tu ele
 
 Aquí algunas ideas para inspirarte:
 
-Alimentación
-Feminismo
-Educación
-Salud
-Energías Renovables
+* Alimentación
+* Feminismo
+* Educación
+* Salud
+* Energías Renovables
+
 Las caraterísticas técnicas de tu aplicación serán las siguientes:
 
-Debe ser una Single-Page Application SPA (versión traducida)
-Debe ser diseñada con un enfoque mobile first (versión traducida)
-Debe permitir la persintencia de datos
-Para implementar tu aplicación usarás HTML5, CCS3, Vanilla JavaScript(ES6+) y Firebase.
+* Debe ser una Single-Page Application SPA (versión traducida)
+* Debe ser diseñada con un enfoque mobile first (versión traducida)
+* Debe permitir la persintencia de datos
+* Para implementar tu aplicación usarás HTML5, CCS3, Vanilla JavaScript(ES6+) y Firebase.
 
 Objetivos de Aprendizaje
 El objetivo de aprendizaje de este proyecto es construir una Red Social, Single-Page Application (SPA), responsiva en la que podamos escribir, leer, actualizar y eliminar datos.
