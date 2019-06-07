@@ -84,23 +84,17 @@ export const deletePost = (idPost) => {
   return firebase.firestore().collection("post").doc(idPost).delete()
 }
 
-/* editando post 
+/* editando post */
 
 export const editPost = (idPost) => {
 
-var postRef = firebase.firestore().collection("post").doc(idPost);
+  var postRef = firebase.firestore().collection("post").doc(idPost);
 
-// Set the "capital" field of the city 'DC'
-return postRef.update({
-    post: newPost
-})
-  .then(function() {
-      console.log("Document successfully updated!");
+  // Set the "capital" field of the city 'DC'
+  return postRef.update({
+      post: newPost
   })
-  .catch(function(error) {
-      // The document probably doesn't exist.
-      console.error("Error updating document: ", error);
-  });
+
 }
  
-*/
+

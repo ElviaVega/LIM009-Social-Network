@@ -1,4 +1,4 @@
-import { deletePostUser } from "./view-controller.js";
+import { deletePostUser, editPostUser } from "./view-controller.js";
 
 export default (post,user) => {
     //console.log(user.id)
@@ -10,7 +10,7 @@ export default (post,user) => {
             <header>
                <p> Publicado por: ${post.name} </p>
                <p> ${post.post} </p>
-               ${post.idUser === user.id? `
+               ${post.idUser === user.id ? `
                <button type = "button" class="btn-eliminar" > &#xf410</button>` : ""}
             </header>
 
@@ -26,7 +26,9 @@ export default (post,user) => {
     const idPost = post.id;
     if(post.idUser === user.id) {
     const btnEliminar = formshowPost.querySelector('.btn-eliminar');
+    const btnEditar = formshowPost.querySelector('.btn-editar')
     btnEliminar.addEventListener('click', () => deletePostUser(idPost));
+    btnEditar.addEventListener('click', () => editPostUser(idPost));
     }
      
     return formshowPost;     

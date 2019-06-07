@@ -1,4 +1,4 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, deletePost } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, deletePost, editPost } from '../controler-firebase.js'
 
 
 const changeHash = (hash) => {
@@ -188,7 +188,16 @@ export const deletePostUser = (idPost) => {
   });
 }
 
-
+export const editPostUser = (idPost) => {
+  editPost(idPost)
+  .then(function() {
+    console.log("Document successfully updated!");
+  })
+  .catch(function(error) {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+  });
+}
 
   
 
