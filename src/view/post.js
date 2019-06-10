@@ -13,7 +13,7 @@ export default (user) => {
                 <option value="publico">Público</option>
             </select>
             <button  id="btn-compartir" type = "button" class="btn-enviar" > Compartir </button>
-            //<div id="pintar-comentario"</div>
+            
         </form>
         <div id="containerPost"></div>
         </div>

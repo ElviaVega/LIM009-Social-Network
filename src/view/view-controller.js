@@ -188,8 +188,28 @@ export const deletePostUser = (idPost) => {
   });
 }
 
-export const editPostUser = (idPost) => {
+export const editPostUser = (idPost, btnEditar, contenedorPost) => {
+  btnEditar.innerHTML = "enviar"
+  btnEditar.addEventListener('click', () => {
+    const tmpPost = `
+        
+        <form>
+            <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true"></textarea>
+            <select>
+                <option value="privado">Privado</option>
+                <option value="publico">Público</option>
+            </select>
+            <button  id="btn-compartir" type = "button" class="btn-enviar" > Compartir </button>
+            //<div id="pintar-comentario"</div>
+        </form>
+              
+        `
+    contenedorPost.append=tmpPost
+  
+  
+  
   editPost(idPost)
+
   .then(function() {
     console.log("Document successfully updated!");
   })
@@ -197,9 +217,11 @@ export const editPostUser = (idPost) => {
     // The document probably doesn't exist.
     console.error("Error updating document: ", error);
   });
+})
+
 }
 
-  
+ 
 
 
 

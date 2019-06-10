@@ -6,12 +6,12 @@ export default (post,user) => {
     
     const formshowPost  = document.createElement("div");
     const tmpshowPost = `
-        <div>
+        <div id="contenedor-post">
             <header>
                <p> Publicado por: ${post.name} </p>
-               <p> ${post.post} </p>
+               <p id='postEliminado'> ${post.post} </p>
                ${post.idUser === user.id ? `
-               <button type = "button" class="btn-eliminar" > &#xf410</button>` : ""}
+               <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410;</i></button>` : ""}
             </header>
 
             <p id ="post" > </p>
@@ -24,11 +24,16 @@ export default (post,user) => {
     formshowPost.innerHTML = tmpshowPost;
 
     const idPost = post.id;
+    console.log(idPost)
     if(post.idUser === user.id) {
     const btnEliminar = formshowPost.querySelector('.btn-eliminar');
-    const btnEditar = formshowPost.querySelector('.btn-editar')
+    const btnEditar = formshowPost.querySelector('.btn-editar');
+    //const pEditar = formshowPost.getElementById('postEditado').innerHTML
+    //console.log(pEditar)
+    //pEditar.contentEditable="true";
+    /*const contenedorPost = formshowPost.querySelector('contenedor-post')*/
     btnEliminar.addEventListener('click', () => deletePostUser(idPost));
-    btnEditar.addEventListener('click', () => editPostUser(idPost));
+    btnEditar.addEventListener('click', () => editPostUser(idPost, btnEditar));
     }
      
     return formshowPost;     
