@@ -96,5 +96,17 @@ export const editPost = (idPost, newPost) => {
   })
 
 }
+/* editando visibilidad de post */
+
+export const editVisibilityPost = (idPost, newVisibility) => {
+
+  var postRef = firebase.firestore().collection("post").doc(idPost);
+
+  // Set the "capital" field of the city 'DC'
+  return postRef.update({
+      visibility: newVisibility
+  })
+
+}
  
 

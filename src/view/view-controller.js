@@ -1,4 +1,4 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, deletePost, editPost } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, deletePost, editPost, editVisibilityPost } from '../controler-firebase.js'
 
 
 const changeHash = (hash) => {
@@ -185,6 +185,7 @@ export const deletePostUser = (idPost) => {
     console.error("Error removing document: ", error);
   });
 }
+/* editar un post */
 
 export const editPostUser = (idPost,textPost, btnEditar) => {
   textPost.disabled = false;
@@ -204,3 +205,9 @@ export const editPostUser = (idPost,textPost, btnEditar) => {
 
 })
 }
+ /* Editar la visibilidad de un post*/
+
+ export const editPrivacyPost = (idPost, newVisibility) => {
+  editVisibilityPost(idPost,newVisibility)
+  
+ }

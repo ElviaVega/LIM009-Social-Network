@@ -1,4 +1,4 @@
-import { deletePostUser, editPostUser } from "./view-controller.js";
+import { deletePostUser, editPostUser, editPrivacyPost } from "./view-controller.js";
 
 export default (post,user) => {
     //console.log(user.id)
@@ -17,12 +17,14 @@ export default (post,user) => {
             <p id ="post" > </p>
             ${post.idUser === user.id ? `
             <button type = "button" class="btn-editar" > Editar </button>` : ""}
-            <button id="btn-like" type = "button"> me gusta </button> 
+            ${post.idUser === user.id ? `
             <select id="visibility">
                 <option value="visibilidad">visibilidad</option>
                 <option value="privado">Privado</option>
                 <option value="publico">Público</option>
-            </select>          
+            </select>` : ""}
+            <button id="btn-like" type = "button"> me gusta </button> 
+                     
             
         </div>
         `
@@ -33,6 +35,7 @@ export default (post,user) => {
     if(post.idUser === user.id) {
     const btnEliminar = formshowPost.querySelector('.btn-eliminar');
     const btnEditar = formshowPost.querySelector('.btn-editar')
+    const visibility = formshowPost.querySelector('#visibility')
             
     btnEliminar.addEventListener('click', () => deletePostUser(idPost));
     btnEditar.addEventListener('click', () => {
@@ -40,6 +43,12 @@ export default (post,user) => {
         console.log(textPost.value)
         editPostUser(idPost, textPost, btnEditar);
     })
+    visibility.addEventListener("change", ()=>{
+        let optionVisibility = visibility.value;
+    editPrivacyPost(idPost, optionVisibility)
+    })
+    
+    
 }
     return formshowPost;     
 }
