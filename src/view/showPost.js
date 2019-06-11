@@ -17,7 +17,12 @@ export default (post,user) => {
             <p id ="post" > </p>
             ${post.idUser === user.id ? `
             <button type = "button" class="btn-editar" > Editar </button>` : ""}
-            <button id="btn-like" type = "button"> me gusta </button>           
+            <button id="btn-like" type = "button"> me gusta </button> 
+            <select id="visibility">
+                <option value="visibilidad">visibilidad</option>
+                <option value="privado">Privado</option>
+                <option value="publico">Público</option>
+            </select>          
             
         </div>
         `
