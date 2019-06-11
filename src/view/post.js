@@ -8,7 +8,8 @@ export default (user) => {
         <div>
         <form>
             <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true"></textarea>
-            <select>
+            <select id="visibility">
+                <option value="visibilidad">visibilidad</option>
                 <option value="privado">Privado</option>
                 <option value="publico">Público</option>
             </select>
@@ -19,11 +20,16 @@ export default (user) => {
         </div>
         `
     formPost.innerHTML = tmpPost;
+    const visibility = formPost.querySelector('#visibility')
+    let optionVisibility
+    visibility.addEventListener("change", ()=>{
+        optionVisibility = visibility.value;
+    })
     const btnCompartir = formPost.querySelector('#btn-compartir');
     btnCompartir.addEventListener('click', () => {
-        const textArea = formPost.querySelector("#post")
-        sendToCollection(user)
-        textArea.value = ""
+        const post = formPost.querySelector("#post")
+        sendToCollection(user, post.value, optionVisibility)
+        post.value = ""
         
     });   
   

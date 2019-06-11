@@ -86,7 +86,7 @@ export const deletePost = (idPost) => {
 
 /* editando post */
 
-export const editPost = (idPost) => {
+export const editPost = (idPost, newPost) => {
 
   var postRef = firebase.firestore().collection("post").doc(idPost);
 

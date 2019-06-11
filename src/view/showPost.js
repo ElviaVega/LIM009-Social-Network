@@ -9,7 +9,7 @@ export default (post,user) => {
         <div id="contenedor-post">
             <header>
                <p> Publicado por: ${post.name} </p>
-               <p id='postEliminado'> ${post.post} </p>
+               <textarea disabled id="textarea-${post.id}"> ${post.post} </textarea>
                ${post.idUser === user.id ? `
                <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410;</i></button>` : ""}
             </header>
@@ -17,7 +17,12 @@ export default (post,user) => {
             <p id ="post" > </p>
             ${post.idUser === user.id ? `
             <button type = "button" class="btn-editar" > Editar </button>` : ""}
-            <button id="btn-like" type = "button"> me gusta </button>           
+            <button id="btn-like" type = "button"> me gusta </button> 
+            <select id="visibility">
+                <option value="visibilidad">visibilidad</option>
+                <option value="privado">Privado</option>
+                <option value="publico">Público</option>
+            </select>          
             
         </div>
         `
@@ -27,15 +32,15 @@ export default (post,user) => {
     console.log(idPost)
     if(post.idUser === user.id) {
     const btnEliminar = formshowPost.querySelector('.btn-eliminar');
-    const btnEditar = formshowPost.querySelector('.btn-editar');
-    //const pEditar = formshowPost.getElementById('postEditado').innerHTML
-    //console.log(pEditar)
-    //pEditar.contentEditable="true";
-    /*const contenedorPost = formshowPost.querySelector('contenedor-post')*/
+    const btnEditar = formshowPost.querySelector('.btn-editar')
+            
     btnEliminar.addEventListener('click', () => deletePostUser(idPost));
-    btnEditar.addEventListener('click', () => editPostUser(idPost, btnEditar));
-    }
-     
+    btnEditar.addEventListener('click', () => {
+        const textPost = document.getElementById(`textarea-${post.id}`)
+        console.log(textPost.value)
+        editPostUser(idPost, textPost, btnEditar);
+    })
+}
     return formshowPost;     
 }
 

@@ -130,17 +130,15 @@ export const logOut = () => {
 
 /* crear post y enviarlo al firestore*/
 
-export const sendToCollection = (userData) => {
-  const post = document.querySelector('#post').value;
-
+export const sendToCollection = (userData, post, visibility) => {
 /*   const objUser = userAcces();
   console.log(objUser); */
     let userPost = {
     userId: userData.id,
     name: userData.name,
-    post: post,
-    date: null,
-    TypeofView: null, 
+    post,
+    date: new Date(),
+    visibility
   }
 
   return setPost(userPost)
@@ -188,28 +186,14 @@ export const deletePostUser = (idPost) => {
   });
 }
 
-export const editPostUser = (idPost, btnEditar, contenedorPost) => {
+export const editPostUser = (idPost,textPost, btnEditar) => {
+  textPost.disabled = false;
   btnEditar.innerHTML = "enviar"
+  const newPost = textPost.value;
+  console.log(newPost)
   btnEditar.addEventListener('click', () => {
-    const tmpPost = `
-        
-        <form>
-            <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true"></textarea>
-            <select>
-                <option value="privado">Privado</option>
-                <option value="publico">Público</option>
-            </select>
-            <button  id="btn-compartir" type = "button" class="btn-enviar" > Compartir </button>
-            //<div id="pintar-comentario"</div>
-        </form>
-              
-        `
-    contenedorPost.append=tmpPost
   
-  
-  
-  editPost(idPost)
-
+  editPost(idPost, newPost)
   .then(function() {
     console.log("Document successfully updated!");
   })
@@ -217,13 +201,6 @@ export const editPostUser = (idPost, btnEditar, contenedorPost) => {
     // The document probably doesn't exist.
     console.error("Error updating document: ", error);
   });
+
 })
-
 }
-
- 
-
-
-
-
-
