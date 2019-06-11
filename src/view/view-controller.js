@@ -130,17 +130,15 @@ export const logOut = () => {
 
 /* crear post y enviarlo al firestore*/
 
-export const sendToCollection = (userData) => {
-  const post = document.querySelector('#post').value;
-
+export const sendToCollection = (userData, post, visibility) => {
 /*   const objUser = userAcces();
   console.log(objUser); */
     let userPost = {
     userId: userData.id,
     name: userData.name,
-    post: post,
-    date: null,
-    TypeofView: null, 
+    post,
+    date: new Date(),
+    visibility
   }
 
   return setPost(userPost)
@@ -188,8 +186,14 @@ export const deletePostUser = (idPost) => {
   });
 }
 
-export const editPostUser = (idPost) => {
-  editPost(idPost)
+export const editPostUser = (idPost,textPost, btnEditar) => {
+  textPost.disabled = false;
+  btnEditar.innerHTML = "enviar"
+  const newPost = textPost.value;
+  console.log(newPost)
+  btnEditar.addEventListener('click', () => {
+  
+  editPost(idPost, newPost)
   .then(function() {
     console.log("Document successfully updated!");
   })
@@ -197,11 +201,6 @@ export const editPostUser = (idPost) => {
     // The document probably doesn't exist.
     console.error("Error updating document: ", error);
   });
+
+})
 }
-
-  
-
-
-
-
-
