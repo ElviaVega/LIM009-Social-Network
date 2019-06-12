@@ -38,7 +38,7 @@ export default (post,user) => {
             
     btnEliminar.addEventListener('click', () => deletePostUser(idPost));
     btnEditar.addEventListener('click', () => {
-        //console.log('ddddddddddddddddddddddddddddddddd')
+        console.log('ddddddddddddddddddddddddddddddddd')
         
         const textPost = document.getElementById(`textarea-${post.id}`)
         console.log(textPost)

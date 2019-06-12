@@ -9,7 +9,7 @@ export default (user) => {
         <form>
             <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true"></textarea>
             <select id="visibility">
-                <option value="visibilidad">visibilidad</option>
+                <option value="" disabled selected> ggghghg</option>
                 <option value="privado">Privado</option>
                 <option value="publico">Público</option>
             </select>
@@ -25,10 +25,19 @@ export default (user) => {
     visibility.addEventListener("change", ()=>{
         optionVisibility = visibility.value;
     })
+    const post = formPost.querySelector("#post")
+    //const post = post.
     const btnCompartir = formPost.querySelector('#btn-compartir');
     btnCompartir.addEventListener('click', () => {
-        const post = formPost.querySelector("#post")
-        sendToCollection(user, post.value, optionVisibility)
+        const textPost = post.value;
+        console.log(textPost)
+        if(textPost.length===0 || optionVisibility.length===0){
+            alert("Debe ingrear un comentario y escoger su visibilidad antes de compartir")
+        } else {
+        
+        sendToCollection(user, textPost, optionVisibility)
+        
+        }
         post.value = ""
         
     });   
