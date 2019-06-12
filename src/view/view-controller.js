@@ -189,23 +189,22 @@ export const deletePostUser = (idPost) => {
 
 export const editPostUser = (idPost,textPost, btnEditar) => {
   textPost.disabled = false;
-  btnEditar.innerHTML = "enviar"
-  const newPost = textPost.value;
-  console.log(newPost)
+  btnEditar.innerHTML = "guardar";
   btnEditar.addEventListener('click', () => {
-  
-  editPost(idPost, newPost)
-  .then(function() {
-    console.log("Document successfully updated!");
-  })
-  .catch(function(error) {
-    // The document probably doesn't exist.
-    console.error("Error updating document: ", error);
-  });
+    let newPost = textPost.value;
+    console.log(newPost)
+    editPost(idPost, newPost)
+      .then(() => {
+        console.log("Document successfully updated!");
+      })
+      .catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+      });
 
-})
+    })
 }
- /* Editar la visibilidad de un post*/
+ /* Editar la visibilidad de un post  */
 
  export const editPrivacyPost = (idPost, newVisibility) => {
   editVisibilityPost(idPost,newVisibility)
