@@ -61,7 +61,9 @@ export const getPost =(callback) => {
       data.push({id:doc.id, 
                 name:doc.data().name,
                 post: doc.data().post,
-                idUser: doc.data().userId })
+                idUser: doc.data().userId,
+                visibility: doc.data().visibility
+               })
     });
   callback(data);
   })

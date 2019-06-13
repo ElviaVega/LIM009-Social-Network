@@ -17,9 +17,9 @@ export default (post,user) => {
             ${post.idUser === user.id ? `
             <button type = "button" class="btn-editar" > Editar </button> 
             <select id="visibility">
-                <option value="visibilidad">visibilidad</option>
-                <option value="privado">Privado</option>
-                <option value="publico">Público</option>
+                <option value="" disabled selected> compartir con</option>
+                <option value="Todos">Todos</option>
+                <option value="Solo yo">solo yo</option>
             </select>`: ""}
            
             <button id="btn-like" type = "button"> me gusta </button> 
@@ -30,7 +30,7 @@ export default (post,user) => {
     formshowPost.innerHTML = tmpshowPost;
 
     const idPost = post.id;
-    console.log(idPost)
+    //console.log(idPost)
     if(post.idUser === user.id) {
     const btnEliminar = formshowPost.querySelector('.btn-eliminar');
     const btnEditar = formshowPost.querySelector('.btn-editar')
@@ -38,8 +38,7 @@ export default (post,user) => {
             
     btnEliminar.addEventListener('click', () => deletePostUser(idPost));
     btnEditar.addEventListener('click', () => {
-        console.log('ddddddddddddddddddddddddddddddddd')
-        
+             
         const textPost = document.getElementById(`textarea-${post.id}`)
         console.log(textPost)
         editPostUser(idPost, textPost, btnEditar);

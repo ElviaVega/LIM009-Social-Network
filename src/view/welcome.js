@@ -29,13 +29,22 @@ export default (user) => {
         formWelcome.appendChild(userProfile(user));
         const contenedorPost = document.createElement("div")
         formWelcome.appendChild(contenedorPost)
-        getPost(posts => {                
+        getPost(posts => {               
             contenedorPost.innerHTML = ""
-            posts.forEach((post)=>{
+            console.log(posts)
+            //if(posts.visibility==="Todos"){
+                //console.log("bien hecho")}
+            posts.forEach((post)=> {
+                console.log(post)
                 const postElem = showPost(post,user)
-                contenedorPost.appendChild(postElem)
-
+                if(post.visibility === "Todos"){ 
+                                   
+                    contenedorPost.appendChild(postElem)
+                }
+                else if (post.visibility === "Solo yo" && user.id === post.idUser){
+                        contenedorPost.appendChild(postElem)}
             })
+            
             
         })
              /*
