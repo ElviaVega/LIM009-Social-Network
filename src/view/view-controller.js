@@ -157,7 +157,7 @@ export const sendToCollection = (userData, post, visibility) => {
 export const showPost = () => {
 
   readData("post")
-  const post1 = document.querySelector("post1")
+  const post1 = document.querySelector(post1)
   querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().post}`);
   });

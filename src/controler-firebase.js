@@ -35,7 +35,7 @@ export const userActiv = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       callback(user)
-      console.log(user)
+      //console.log(user)
     } else {
       // No user is signed in.
       console.log("no hay usuario activo")
@@ -102,9 +102,7 @@ export const editPost = (idPost, newPost) => {
 /* editando visibilidad de post */
 
 export const editVisibilityPost = (idPost, newVisibility) => {
-
   var postRef = firebase.firestore().collection("post").doc(idPost);
-
   return postRef.update({
       visibility: newVisibility
   })
