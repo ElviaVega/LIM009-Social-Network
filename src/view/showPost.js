@@ -9,10 +9,12 @@ export default (post,user) => {
         <div id="contenedor-post">
             <header>
                <p> Publicado por: ${post.name} </p>
-               <textarea disabled id="textarea-${post.id}"> ${post.post} </textarea>
                ${post.idUser === user.id ? `
                <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410;</i></button>` : ""}
             </header>
+               <textarea disabled id="textarea-${post.id}"> ${post.post} </textarea>
+               
+            
             <p id ="post" > </p>
             ${post.idUser === user.id ? `
             <button type = "button" class="btn-editar" > Editar </button> 

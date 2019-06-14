@@ -9,24 +9,28 @@ export default (user) => {
 //console.log(user)
   const formWelcome  = document.createElement("div");
   const tmpWelcome = `
-  <div >
+  
     <header>
+      <div>
+        <img src="./imagen/logo-travelovers.png" class='logo-welcome'>
+      </div>
       <nav>
         <ul class='menu-nav'>
           <li> perfil</li>
-          <li> Consejos viajeros </li>
+          <li> <a href="https://www.mochiadictos.com/consejos-viajeros/" target="_blank" </a> Consejos viajeros</li>
           <li><a id='sign-out'>Cerrar Sesión</a></li>             
         </ul>
-          </nav>
+      </nav>
     </header>
-      <h2> Bienvenido </h2>
       <div class='imagen-portada'>
-        <img src="./imagen/colash.jpg">        
-      </div>       
+        <img src="./imagen/colash.jpg" class='img-portada'>        
+      </div> 
+       
+      <h2> Bienvenido </h2>       
     `
   formWelcome.innerHTML = tmpWelcome;
-  formWelcome.appendChild(formPost(user));
   formWelcome.appendChild(userProfile(user));
+  formWelcome.appendChild(formPost(user));  
   const contenedorPost = document.createElement("div")
   formWelcome.appendChild(contenedorPost)
   getPost(posts => {               

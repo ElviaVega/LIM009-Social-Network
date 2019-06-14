@@ -6,7 +6,7 @@ export default (user) => {
     const tmpUserProfile = `
         <div>
             <img id="photo" src="${user.photo}" alt="photo of user" />
-            <h2 id="">${user.name}</h2>
+            <h3 id="">${user.name}</h3>
         </div>
         `
     formUserProfile.innerHTML = tmpUserProfile

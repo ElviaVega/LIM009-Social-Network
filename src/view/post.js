@@ -8,12 +8,13 @@ export default (user) => {
         <div>
         <form>
             <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true"></textarea>
+            <label> compartir con </label>
             <select id="visibility">
-                <option value="" disabled selected> compartir con</option>
+                <option value="" disabled selected>Todos</option>
                 <option value="Todos">Todos</option>
                 <option value="Solo yo">Solo yo</option>
             </select>
-            <button  id="btn-compartir" type = "button" class="btn-enviar" > Compartir </button>
+            <button  id="btn-compartir" type = "button" class="btn-enviar" > Publicar </button>
             
         </form>
         <div id="containerPost"></div>

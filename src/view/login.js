@@ -3,7 +3,14 @@ import { logInOnSubmit, logInGoogle } from "./view-controller.js";
 export default () => {
   const formLogin  = document.createElement("div");
   const tmpLogin = `
-  <div>
+    <div class='imagen-portada'>
+      <img src="./imagen/colash.jpg">        
+    </div>
+    <div class='logo'>
+        <img src="./imagen/logo-travelovers.png">
+        <p>"Por que viajar es la mejor manera de perderse y encontrarse al mismo tiempo"  </P>        
+    </div>
+    <p> Inicia Sesión </p>
     <form class='form-login'>
       <input type='email' id='email' placeholder ='Email' class='block'/>
       <input type='password' id='password' placeholder ='Password' class='block'/>
