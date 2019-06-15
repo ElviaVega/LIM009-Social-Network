@@ -1,5 +1,5 @@
 import { sendToCollection } from "./view-controller.js";
-//import {readData} from "..controler-firebase.js/";
+
 
 export default (user) => {
     /* seccion donde se redacta el post */

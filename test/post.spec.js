@@ -69,9 +69,9 @@ describe('colección post', () => {
     return deletePost('EF3nm8kO')
       .then(() => getPost(
         (data) => {
-        console.log(data)
+        //console.log(data)
           const result = data.find((element) => element.id === 'EF3nm8kO');
-          console.log(result)
+         // console.log(result)
           expect(result).toBe(undefined);
           done()
         }
@@ -81,9 +81,9 @@ describe('colección post', () => {
     return editPost('ABC4GH4f', 'Soy feliz viajando')
       .then(() => getPost(
         (data) => {
-        console.log(data)
+       // console.log(data)
           const result = data.find((element) => element.id === 'ABC4GH4f');
-          console.log(result)
+          //console.log(result)
           expect(result.post).toBe('Soy feliz viajando');
           done()
         }
@@ -93,23 +93,15 @@ describe('colección post', () => {
     return editVisibilityPost('ABC4GH4f', 'Solo Yo')
       .then(() => getPost(
         (data) => {
-        console.log(data)
+       // console.log(data)
           const result = data.find((element) => element.visibility === 'Solo Yo');
-          console.log(result)
+         // console.log(result)
           expect(result.visibility).toBe('Solo Yo');
           done()
         }
       ))
   });
-  it('Debería poder obtener todos los posts en tiempo real', (done) => {
-    return readData('post')
-        .then((data) => {
-            console.log(data)
-            done()
-        })
-        
-    })
-
+  
   describe('colección de usuarios', () => {
     it('Debería agregar un usuario', (done) => {
         return setUsers('users', 'E5NDXeIZrZbOCfMKyPJPmOJ5BQG2', {
@@ -121,7 +113,7 @@ describe('colección post', () => {
         }).then(() => {
             userFirestore('E5NDXeIZrZbOCfMKyPJPmOJ5BQG2')
                 .then((doc) => {
-                    console.log(doc.data());
+                   // console.log(doc.data());
                     const result = doc.data().name;
                     expect(result).toBe('Claudia Rojas');
                     done();

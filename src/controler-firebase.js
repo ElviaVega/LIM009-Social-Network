@@ -38,7 +38,7 @@ export const userActiv = (callback) => {
       //console.log(user)
     } else {
       // No user is signed in.
-      console.log("no hay usuario activo")
+      return("no hay usuario activo")
 
       }
     });
@@ -76,9 +76,10 @@ export const setPost = (obj) =>{
 
 /*leer datos de la coleccion  */
 
-export const readData = (namecollection) => {
-  return firebase.firestore().collection(namecollection).onSnapShot();
-}
+//export const readData = (namecollection) => {
+  //return firebase.firestore().collection(namecollection).onSnapShot();
+//}
+
 
 /* borrar post */
 

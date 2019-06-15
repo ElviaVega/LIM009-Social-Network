@@ -1,4 +1,4 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces, readData, userActiv, userFirestore, deletePost, editPost, editVisibilityPost } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces,  userActiv, userFirestore, deletePost, editPost, editVisibilityPost } from '../controler-firebase.js'
 
 
 const changeHash = (hash) => {
@@ -155,9 +155,8 @@ export const sendToCollection = (userData, post, visibility) => {
 /* Leer y pintar los post en pantalla */
 
 export const showPost = () => {
-
-  readData("post")
-  const post1 = document.querySelector(post1)
+  //readData("post")
+  //const post1 = document.querySelector(post1)
   querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().post}`);
   });

@@ -14,7 +14,8 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 //iniciando test
 
-import { signIn, signUp, signInGoogle } from '../src/controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, userActiv  } from '../src/controler-firebase.js'
+import { callbackify } from 'util';
 
  
 describe('singIn', () => {
@@ -43,3 +44,30 @@ describe('signInGoogle', () => {
     });
   });
 });
+describe('signOut', () => {
+  it('deberia cerrar sesión del usuario', () => {
+    return signIn('alguien@hotmail.com', '123456')
+      .then((user1) => {
+        //console.log(user1)
+        return singOut()
+          .then((user1) => {
+           //console.log(user1)
+          expect(user1).toBe(undefined) 
+      })         
+    });
+  });
+});
+
+describe('userActiv', () => {
+  it('debería identificar que el usuario tiene una sesión activa', (done) => {
+    
+    return signIn('alguien@hotmail.com', '123456')
+    .then((user) => {
+      console.log (user)
+       userActiv((user) => user)
+      //  expect(user.email).toBe('alguien@hotmail.com')
+      
+    })
+    .then(res => {console.log(res); done()})
+  })
+})  

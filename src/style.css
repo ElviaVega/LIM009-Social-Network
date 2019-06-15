@@ -6,7 +6,7 @@
 }
 
 body {
-    background:  -webkit-linear-gradient(top, rgba(181, 228, 235, 0.8) 0%, rgba(50, 243, 243, 0.8) 50%, rgb(15, 201, 24) 100%);
+    /*background:  -webkit-linear-gradient(top, rgba(181, 228, 235, 0.8) 0%, rgba(50, 243, 243, 0.8) 50%, rgb(15, 201, 24) 100%);*/
           
     /*
     opacity: 1 ;   
@@ -24,7 +24,7 @@ body {
    
 }
 #contenedor-post {
-    background: whitesmoke;
+    background: rgb(252, 237, 155);
     width: 90%;
     /*padding: 0.5rem;*/
     margin: 0.5rem;
