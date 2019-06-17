@@ -11,9 +11,7 @@ export default (user) => {
   const tmpWelcome = `
   
     <header>
-      <div>
-        <img src="./imagen/logo-travelovers.png" class='logo-welcome'>
-      </div>
+     
       <nav>
         <ul class='menu-nav'>
           <li> perfil</li>
@@ -22,9 +20,9 @@ export default (user) => {
         </ul>
       </nav>
     </header>
-      <div class='imagen-portada'>
-        <img src="./imagen/colash.jpg" class='img-portada'>        
-      </div> 
+    <div class="logo">
+      <img src="./imagen/logo.jpg" class="travellovers">
+    </div>
        
       <h2> Bienvenido </h2>       
     `

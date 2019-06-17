@@ -7,7 +7,7 @@ export default () => {
       <img src="./imagen/colash.jpg">        
     </div>
     <div class='logo'>
-        <img src="./imagen/logo-travelovers.png">
+        <img src="./imagen/logo.jpg" class="logo-welcome">
         <p>"Por que viajar es la mejor manera de perderse y encontrarse al mismo tiempo"  </P>        
     </div>
     <p> Inicia Sesión </p>
