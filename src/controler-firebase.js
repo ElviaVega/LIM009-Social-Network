@@ -25,14 +25,16 @@ export const setUsers = (nameCollection, docId, obj) => {
   return firebase.firestore().collection(nameCollection).doc(docId).set(obj)
 }
 
-/* identificar al usuario que accedio a la aplicacion*/
-
+/* identificar al usuario que accedio a la aplicacion
 export const userAcces = () => {
   return firebase.auth().currentUser;
- 
-};
+  };
+ */
+
+
 export const userActiv = (callback) => {
-  firebase.auth().onAuthStateChanged((user) => {
+  return firebase.auth().onAuthStateChanged(callback);
+   /*
     if (user) {
       callback(user)
       //console.log(user)
@@ -41,8 +43,9 @@ export const userActiv = (callback) => {
       return("no hay usuario activo")
 
       }
-    });
- };
+     */ 
+    };
+ 
 
 
 /* obtener el usuario activo desde coleccion users */

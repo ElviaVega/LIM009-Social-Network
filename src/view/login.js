@@ -3,24 +3,23 @@ import { logInOnSubmit, logInGoogle } from "./view-controller.js";
 export default () => {
   const formLogin  = document.createElement("div");
   const tmpLogin = `
-    <div class='imagen-portada'>
-      <img src="./imagen/colash.jpg">        
-    </div>
-    <div class='logo'>
-        <img src="./imagen/logo.jpg" class="logo-welcome">
-        <p>"Por que viajar es la mejor manera de perderse y encontrarse al mismo tiempo"  </P>        
-    </div>
-    <p> Inicia Sesión </p>
+    
+    <picture class="logo">
+        <img src="./imagen/logo.jpg">
+    </picture>
+    
+    <h3 class="centrar"> BIENVENID@ VIAJER@ </h3>
+    
     <form class='form-login'>
       <input type='email' id='email' placeholder ='Email' class='block'/>
       <input type='password' id='password' placeholder ='Password' class='block'/>
       <button type='button' id='btn-login' class='block'>Log in</button>
       <p id='error'></p>
-      <p> O bien ingresa con: </p>
+      <p class="centrar" > O bien ingresa con: </p>
       <a  id='btn-google'>
         <img src='./imagen/logo-google.png' alt="Google" class='logo-google'>
       </a>		
-      <p>Si no  tienes una cuenta <span><a href="#/register">Registrate</a></span></p>
+      <p>¿No  tienes una cuenta? <span><a href="#/register">Regístrate</a></span></p>
     </form>
     `
     formLogin.innerHTML = tmpLogin;

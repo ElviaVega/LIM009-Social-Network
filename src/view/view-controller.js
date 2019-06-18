@@ -1,4 +1,4 @@
-import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,userAcces,  userActiv, userFirestore, deletePost, editPost, editVisibilityPost } from '../controler-firebase.js'
+import { signIn, signUp, signInGoogle, singOut, setUsers, setPost,  userActiv, userFirestore, deletePost, editPost, editVisibilityPost } from '../controler-firebase.js'
 
 
 const changeHash = (hash) => {

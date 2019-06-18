@@ -7,13 +7,19 @@
 
 body {
      /*background:  -webkit-linear-gradient(top, rgba(181, 228, 235, 0.8) 0%, rgba(50, 243, 243, 0.8) 50%, rgb(15, 201, 24) 100%);*/
-          
-    /*
-    opacity: 1 ;   
-    background-image: url('./imagen/fondo-pantalla.jpg');
-    background-size: cover;
-    background-attachment: fixed;
+     min-height: 100vh; 
+     padding: 2%; 
+     background: #e7e4e4   
+    
        
+}
+img {
+    max-width: 70%;
+    display: block;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
 }
     
 .container {
@@ -44,11 +50,9 @@ form {
     display: block;
 }
 
-.menu-nav {
-    
+.menu-nav {    
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
 }
 
 nav ul li {
@@ -67,7 +71,7 @@ button {
     padding: 0.5rem;
     border-radius: 0.5rem;
     border: 0;
-    background: #14c440;
+    background: #F50049;
 }
 
 .btn-eliminar {
@@ -83,15 +87,7 @@ button {
     border-radius: 0.5rem;
 }
 
-.logo {
-    width: 30%;
-    height: 10%;
-    
-}
 
-.travellovers {
-    height: 8rem;
-}
 
 
 .img-portada {
@@ -103,4 +99,9 @@ header {
     background: #f37a69;
     display: flex;
     justify-content: space-between;
+}
+.centrar {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }

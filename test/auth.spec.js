@@ -57,7 +57,7 @@ describe('signOut', () => {
     });
   });
 });
-
+/*
 describe('userActiv', () => {
   it('debería identificar que el usuario tiene una sesión activa', (done) => {
     
@@ -71,3 +71,40 @@ describe('userActiv', () => {
     .then(res => {console.log(res); done()})
   })
 })  
+
+escribe('userActiv', () => {
+  it('debería identificar que el usuario tiene una sesión activa', (done) => {
+    const saludo = (user) => {console.log("Hola" + user)}
+    return signIn('alguien@hotmail.com', '123456')
+    .then((user) => {
+      //console.log (user)
+       userActiv((saludo (user)) => 
+       .then((user) => 
+        expect(saludo(user.email).toBe('alguien@hotmail.com')
+      done()
+    })
+    //.then(res => {console.log(res); done()})
+  })
+})
+*/
+describe('Active User', () => {
+  it('firebaseAuthState deberia de ser una funcion', () => {
+      expect(typeof userActiv).toBe('function')
+  });
+  it('deberia de existir usuario activo', (done) => {
+
+      return signIn('abc@gmail.com', '123456').then((user) => {
+          //  console.log(user);
+          const callback = (user1) => {
+              //console.log(user1)
+              expect(user1.email).toEqual('abc@gmail.com')
+
+          };
+          userActiv(callback(user));
+          done();
+
+      })
+
+
+  })
+});
