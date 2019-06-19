@@ -2,18 +2,19 @@ import { logInOnSubmit, logInGoogle } from "./view-controller.js";
 
 export default () => {
   const formLogin  = document.createElement("div");
-  const tmpLogin = `
-    
-    <picture class="logo">
-        <img src="./imagen/logo.jpg">
+  formLogin.className='contenedor-login'
+  const tmpLogin = `    
+    <picture>
+        <img src="./imagen/travel-worl.jpg" class="logo centrar">
+        <img src="./imagen/logo-maleta.jpg" class="centrar"
     </picture>
     
-    <h3 class="centrar"> BIENVENID@ VIAJER@ </h3>
+    <h3 class="centrar"> ¡BIENVENID@ VIAJER@! </h3>
     
-    <form class='form-login'>
-      <input type='email' id='email' placeholder ='Email' class='block'/>
-      <input type='password' id='password' placeholder ='Password' class='block'/>
-      <button type='button' id='btn-login' class='block'>Log in</button>
+    <form class='form-login centrar'>
+      <input type='email' id='email' placeholder ='Email' class='block centrar'/>
+      <input type='password' id='password' placeholder ='Password' class='block centrar'/>
+      <button type='button' id='btn-login' class='block centrar boton-login'>Log in</button>
       <p id='error'></p>
       <p class="centrar" > O bien ingresa con: </p>
       <a  id='btn-google'>
