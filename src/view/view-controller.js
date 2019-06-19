@@ -58,7 +58,7 @@ export const signUpUser = () => {
           id: result.user.uid,
           name: name,
           email: result.user.email,
-          photo: null
+          //photo: "http://icons.iconarchive.com/icons/papirus-team/papirus-status/256/avatar-default-icon.png"
         })
       })
       .catch((error) => {
@@ -85,11 +85,14 @@ export const logInGoogle = () => {
     console.log(token)
     const user = result.user;
     const nameUser = user.displayName;
+    //const photo= user.photoURL;
     observer()
     return setUsers('users', result.user.uid, {
       id: user.uid,
       name: nameUser,
-      email: user.email
+      email: user.email,
+      //photo
+
     })      
     //changeHash('/welcome')
   })

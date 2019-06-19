@@ -10,7 +10,7 @@ export default (user) => {
   const formWelcome  = document.createElement("div");
   formWelcome.className="contenedor-welcome"
   const tmpWelcome = `  
-    <header>     
+    <header>  
       <nav>
         <ul class='menu-nav'>
           <li> perfil</li>
