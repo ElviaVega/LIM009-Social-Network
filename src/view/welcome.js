@@ -8,10 +8,9 @@ import showPost from "./showPost.js"
 export default (user) => {
 //console.log(user)
   const formWelcome  = document.createElement("div");
-  const tmpWelcome = `
-  
-    <header>
-     
+  formWelcome.className="contenedor-welcome"
+  const tmpWelcome = `  
+    <header>     
       <nav>
         <ul class='menu-nav'>
           <li> perfil</li>
@@ -21,7 +20,7 @@ export default (user) => {
       </nav>
     </header>
     <div class="logo">
-      <img src="./imagen/logo.jpg" class="travellovers">
+    <img src="./imagen/logo-maleta.jpg" class="travellovers">
     </div>
        
       <h2> Bienvenido </h2>       

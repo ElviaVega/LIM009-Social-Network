@@ -9,7 +9,7 @@ body {
      /*background:  -webkit-linear-gradient(top, rgba(181, 228, 235, 0.8) 0%, rgba(50, 243, 243, 0.8) 50%, rgb(15, 201, 24) 100%);*/
      min-height: 100vh; 
      padding: 2%; 
-     background: #fffde7  
+     background: #ffffff  
     
        
 }
@@ -56,7 +56,7 @@ input {
     margin: 1rem;
     padding:  10px;
     border-radius: 15px;
-    border: solid 1px blue;
+    border: solid 1px rgb(7, 78, 78);
     
 }
 
@@ -110,17 +110,31 @@ h3 {
 }
 .boton-login {
     width: 50%;
+    
 }
 .logo {
-    max-width: 40%;
+    max-width: 50%;
 }
 .contenedor-login {
+    display: block;
     text-align: center;
 }
+.login2 {
+    display: block;
+    
 
+}
+.logo-maleta {
+    width: 40%;
+}
 
 @media screen and ( min-width: 700px ) {
-    .contenedor-login {
-        display: flex;
-    } 
+      .contenedor-login {
+          display:flex;
+          
+      }
+      .logo {
+          max-width: 90%;
+      }
+    
 }
