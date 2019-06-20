@@ -169,11 +169,15 @@ export const showPost = () => {
 
 export const userData = (cb) => {   
   userActiv(user => {
+    if (user){
     console.log(user)
-    userFirestore(user.uid)
-    .then(res => {//console.log(res)
-      cb(res.data())
-    })  
+      userFirestore(user.uid)
+      .then(res => {//console.log(res)
+        cb(res.data())
+      })
+    } else {
+      console.log('usuario no activo')
+    } 
   })
 }
 
