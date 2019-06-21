@@ -5,8 +5,9 @@ export default (post,user) => {
     //console.log(post.id)
     
     const formshowPost  = document.createElement("div");
+    formshowPost.className="contenedor-post"
     const tmpshowPost = `
-        <div id="contenedor-post">
+        
             <header>
                <p> Publicado por: ${post.name} </p>
                ${post.idUser === user.id ? `
@@ -27,7 +28,7 @@ export default (post,user) => {
             <button id="btn-like" type = "button"> me gusta </button> 
                      
             
-        </div>
+        
         `
     formshowPost.innerHTML = tmpshowPost;
 

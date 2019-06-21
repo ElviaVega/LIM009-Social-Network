@@ -5,20 +5,20 @@ export default (user) => {
     /* seccion donde se redacta el post */
     const formPost  = document.createElement("div");
     const tmpPost = `
-        <div>
+        
         <form>
-            <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true"></textarea>
-            <label> compartir con </label>
+            <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true" class="estilo-textarea"></textarea>
+            
             <select id="visibility">
-                <option value="" disabled selected>Todos</option>
+                <option value="" disabled selected>Compartir con</option>
                 <option value="Todos">Todos</option>
                 <option value="Solo yo">Solo yo</option>
             </select>
             <button  id="btn-compartir" type = "button" class="btn-enviar" > Publicar </button>
             
         </form>
-        <div id="containerPost"></div>
-        </div>
+        
+        
         `
     formPost.innerHTML = tmpPost;
     const visibility = formPost.querySelector('#visibility')
