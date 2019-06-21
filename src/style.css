@@ -14,7 +14,7 @@ body {
 }  
 header {
     padding: 0.3rem;
-    background: #F50049;
+    background: rgb(250, 63, 119);
     display: flex !important;
     justify-content: space-between !important;
 }
