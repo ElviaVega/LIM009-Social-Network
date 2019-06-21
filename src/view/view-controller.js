@@ -58,7 +58,11 @@ export const signUpUser = () => {
           id: result.user.uid,
           name: name,
           email: result.user.email,
+<<<<<<< HEAD
           photo: "http://icons.iconarchive.com/icons/papirus-team/papirus-status/256/avatar-default-icon.png"
+=======
+          //photo: "http://icons.iconarchive.com/icons/papirus-team/papirus-status/256/avatar-default-icon.png"
+>>>>>>> 31758d60734e978dc65a5f06dac6db926128162a
         })
       })
       .catch((error) => {
@@ -85,13 +89,21 @@ export const logInGoogle = () => {
     console.log(token)
     const user = result.user;
     const nameUser = user.displayName;
+<<<<<<< HEAD
     const photo= user.photoURL;
+=======
+    //const photo= user.photoURL;
+>>>>>>> 31758d60734e978dc65a5f06dac6db926128162a
     observer()
     return setUsers('users', result.user.uid, {
       id: user.uid,
       name: nameUser,
       email: user.email,
+<<<<<<< HEAD
       photo
+=======
+      //photo
+>>>>>>> 31758d60734e978dc65a5f06dac6db926128162a
 
     })      
     //changeHash('/welcome')

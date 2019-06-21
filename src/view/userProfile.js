@@ -1,7 +1,7 @@
 //import { userActiv } from "../controler-firebase";
 
 export default (user) => {  
-      
+     console.log(user) 
     const formUserProfile  = document.createElement("div");
     formUserProfile.className="user"
     const tmpUserProfile = `

@@ -10,11 +10,16 @@ export default (user) => {
   const formWelcome  = document.createElement("div");
   formWelcome.className="contenedor-welcome"
   const tmpWelcome = `  
+<<<<<<< HEAD
     <header> 
     <div class="logo">
       <img src="./imagen/logo-maleta.jpg" class="welcomw-maleta">
     </div>    
       <nav >
+=======
+    <header>  
+      <nav>
+>>>>>>> 31758d60734e978dc65a5f06dac6db926128162a
         <ul class='menu-nav'>
           <li> perfil</li>
           <li> <a href="https://www.mochiadictos.com/consejos-viajeros/" target="_blank" </a> Consejos viajeros</li>
