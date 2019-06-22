@@ -8,11 +8,11 @@ export default (post,user) => {
     formshowPost.className="contenedor-post"
     const tmpshowPost = `
         
-            <header>
+            <div class="header-post">
                <p> Publicado por: ${post.name} </p>
                ${post.idUser === user.id ? `
                <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410;</i></button>` : ""}
-            </header>
+            </div>
                <textarea disabled id="textarea-${post.id}"> ${post.post} </textarea>
                
             
