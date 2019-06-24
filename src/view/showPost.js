@@ -10,6 +10,7 @@ export default (post,user) => {
         
             <div class="header-post">
                <p> Publicado por: ${post.name} </p>
+               <p> ${post.visibility}</p>
                ${post.idUser === user.id ? `
                <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410</i></button>` : ""}
             </div>

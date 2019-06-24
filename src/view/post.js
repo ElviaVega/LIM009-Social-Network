@@ -6,7 +6,7 @@ export default (user) => {
     const formPost  = document.createElement("div");
     const tmpPost = `
         
-        <form>
+        <form class="create-post">
             <textarea id ="post" placeholder = "¿Que quieres compartir?" name="texto" spellcheck="true" class="estilo-textarea"></textarea>
             
             <select id="visibility">
@@ -17,8 +17,7 @@ export default (user) => {
             <button  id="btn-compartir" type = "button" class="btn-enviar" > Publicar </button>
             
         </form>
-        
-        
+               
         `
     formPost.innerHTML = tmpPost;
     const visibility = formPost.querySelector('#visibility')

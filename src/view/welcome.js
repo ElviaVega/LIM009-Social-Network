@@ -24,11 +24,17 @@ export default (user) => {
           
     `
   formWelcome.innerHTML = tmpWelcome;
-  formWelcome.appendChild(userProfile(user));
-  formWelcome.appendChild(formPost(user));  
+  const screenWelcome = document.createElement("div")
+  formWelcome.appendChild(screenWelcome)
+  screenWelcome.className = "screen-welcome"
+  screenWelcome.appendChild(userProfile(user));
+  const screenPost = document.createElement("div")
+  screenPost.className = "screen-post"
+  screenWelcome.appendChild(screenPost);
+  screenPost.appendChild(formPost(user));  
   const contenedorPost = document.createElement("div")
   contenedorPost.className="con-gen-post"
-  formWelcome.appendChild(contenedorPost)
+  screenPost.appendChild(contenedorPost)
   getPost(posts => {               
     contenedorPost.innerHTML = ""
     //console.log(posts)

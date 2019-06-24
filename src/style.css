@@ -65,7 +65,7 @@ button {
     border-radius: 0.6rem;
     border: 0;
     background: rgb(240, 96, 139);
-    color: beige;
+    color: rgb(243, 243, 230);
     
 }
 .logo-google {
@@ -77,8 +77,8 @@ button {
 .btn-eliminar {
     margin: 0.1rem 0.2rem 0.1rem 0.2rem;
     padding: 0.1rem;
-    border: none;
-    background: none;
+    color: black;
+    background: none;    
 }
 
 .form-login{
@@ -130,8 +130,6 @@ h3 {
 }
 .login2 {
     display: block;
-    
-
 }
 .logo-maleta {
     width: 40%;
@@ -154,7 +152,8 @@ h3 {
     justify-content: center;
 }
 .estilo-textarea {
-    width: 25rem;
+    width: 85%;
+    padding: 1rem;
     height: 5rem;
     border: 1.5px solid #5e5a5a;
 }
@@ -168,17 +167,31 @@ h3 {
 }
 .post-pub {
     width: 90%;
-    height: 4rem ;
-    background: rgb(245, 245, 244);
-    border: none;
+    height: 5rem ;
+    background: rgb(230, 237, 238);
+    margin-top: 1rem;
+    padding: 0.5rem;
+    
 }
+.create-post {
+    display: block;
+}
+
 @media screen and ( min-width: 700px ) {
       .contenedor-login {
-          display:flex;
-          
+          display:flex;          
       }
       .logo {
           max-width: 90%;
       }
-    
+    .screen-welcome {
+        display: flex;
+    }
+    .user{
+        width: 30%;
+    }
+    .screen-post {
+        width: 70%;
+        padding: 5%;
+    }
 }
