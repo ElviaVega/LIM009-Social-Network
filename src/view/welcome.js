@@ -11,17 +11,17 @@ export default (user) => {
   formWelcome.className="contenedor-welcome"
   const tmpWelcome = `  
     <header> 
-    <div class="logo">
-      <img src="./imagen/logo-maleta.jpg" class="welcomw-maleta">
-    </div>    
       <nav >
         <ul class='menu-nav'>
           <li> perfil</li>
-          <li> <a href="https://www.mochiadictos.com/consejos-viajeros/" target="_blank" </a> Consejos viajeros</li>
+          <div >
+            <img src="./imagen/logo-maleta2.png" class="welcomw-maleta">
+          </div> 
           <li><a id='sign-out'>Cerrar Sesión</a></li>             
         </ul>
-      </nav>     
-    </header>        
+      </nav>          
+    </header> 
+          
     `
   formWelcome.innerHTML = tmpWelcome;
   formWelcome.appendChild(userProfile(user));

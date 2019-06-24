@@ -11,9 +11,9 @@ export default (post,user) => {
             <div class="header-post">
                <p> Publicado por: ${post.name} </p>
                ${post.idUser === user.id ? `
-               <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410;</i></button>` : ""}
+               <button type = "button" class="btn-eliminar"><i style='font-size:24px' class='far'>&#xf410</i></button>` : ""}
             </div>
-               <textarea disabled id="textarea-${post.id}"> ${post.post} </textarea>
+               <textarea disabled id="textarea-${post.id}" class="post-pub"> ${post.post} </textarea>
                
             
             <p id ="post" > </p>
@@ -25,7 +25,7 @@ export default (post,user) => {
                 <option value="Solo yo">solo yo</option>
             </select>`: ""}
            
-            <button id="btn-like" type = "button"> me gusta </button> 
+            <button id="btn-like" type = "button"><i style='font-size:24px' class='far'> &#xf004</i> </button> 
                      
             
         
