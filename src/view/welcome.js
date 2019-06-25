@@ -10,16 +10,23 @@ export default (user) => {
   const formWelcome  = document.createElement("div");
   formWelcome.className="contenedor-welcome"
   const tmpWelcome = `  
-    <header> 
-      <nav >
-        <ul class='menu-nav'>
-          <li> perfil</li>
-          <div >
-            <img src="./imagen/logo-maleta2.png" class="welcomw-maleta">
-          </div> 
-          <li><a id='sign-out'>Cerrar Sesión</a></li>             
+    <header>
+    <div class="hamburger" >
+      <input type="checkbox" id="btn-menu">
+      <label for="btn-menu"><i style="font-size:25px" class="fas fa-bars" aria-hidden="true">  </i> </label>
+      <nav class="menu">
+        <ul>
+          <li> Perfil</li>
+          <li><a id='sign-out'>Cerrar Sesión</a></li>
         </ul>
-      </nav>          
+      </nav>
+     </div>  
+     <div class="log-maleta" >
+        <img src="./imagen/logo-maleta2.png" class="welcomw-maleta">
+      </div> 
+      <button class="btn-sing-out"><a id='sign-out1'>Cerrar Sesión</a></button>             
+        
+                
     </header> 
           
     `
@@ -56,6 +63,8 @@ export default (user) => {
 
     const btnSignOut = formWelcome.querySelector('#sign-out');
     btnSignOut.addEventListener('click', logOut)
+    const btnSignOut1 = formWelcome.querySelector('#sign-out1');
+    btnSignOut1.addEventListener('click', logOut)
                
     return formWelcome;
 } 

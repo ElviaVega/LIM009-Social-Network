@@ -12,13 +12,6 @@ body {
     
        
 }  
-header {
-    padding: 0.3rem;
-    background: rgb(97, 255, 255);
-    display: flex !important;
-    justify-content: space-between !important;
-    
-}
 
 .con-gen-post {
     width:100% ;
@@ -92,21 +85,20 @@ button {
     height: 40vh;
      
 }
-
+/*
 nav {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
+
 .menu-nav {    
     display: flex ;
     width: 100%;
     justify-content: space-between;    
 }
+*/
 
-nav ul li {
-    list-style: none;
-}
 .centrar {
     width: 80%;
     margin-left: auto;
@@ -133,6 +125,7 @@ h3 {
 }
 .logo-maleta {
     width: 40%;
+    
 }
 #photo {
     width: 5rem;
@@ -175,15 +168,74 @@ h3 {
 }
 .create-post {
     display: block;
+    
+}
+#sign-out1 {
+    display: none;
+}
+.btn-sing-out {
+    display: none;
+}
+/* menu desplegable resposive */
+#btn-menu {
+    display: none;
+    width: 20%;
+}
+#btn-menu:checked ~ .menu {
+    margin: 0;
+}
+.hamburger {
+    display: block;
+
+}
+header {
+    width: 100%;
+    display: flex;
+    background: rgb(97, 255, 255);
+}
+.log-maleta  {
+    width:40%;
+    margin-left: 29%;
+}
+header label {
+    display: block;
+    text-align: left;
+    padding: 10px;
+    border-right:1px solid #fff
+}
+header label:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,0.1);
+}
+.menu {
+    text-align: left;
+    position: absolute;
+    background: rgb(97, 255, 255);
+    width: 40%;
+    margin-left: -60%;
+    
+    
+}
+menu ul {
+    flex-direction:column;    
+}
+
+nav ul li {
+    list-style: none;
+    text-align: left;
+    height: 2rem;
+    border: 1px solid whitesmoke;
+    padding: 0.5rem;  
+    
 }
 
 @media screen and ( min-width: 700px ) {
-      .contenedor-login {
+    .contenedor-login {
           display:flex;          
-      }
-      .logo {
+    }
+    .logo {
           max-width: 90%;
-      }
+    }
     .screen-welcome {
         display: flex;
     }
@@ -193,5 +245,44 @@ h3 {
     .screen-post {
         width: 70%;
         padding: 5%;
+    }
+   
+    #sign-out1 {
+        display: flex;
+    }
+   
+    header {
+        padding: 0.3rem;
+        background: rgb(97, 255, 255);
+        display: flex;
+        justify-content: space-between;
+    }
+    header label {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        margin-left: 1%;
+        width: 100%;
+    }
+    .create-post {
+        display: block;
+        padding: 0 10%;
+        width: 100%;
+        text-align:center;
+    }
+    .estilo-textarea{
+        width: 100%;
+    }
+    .btn-sing-out{
+        display: block;
+        background:  rgb(97, 255, 255);
+        color: black;
+    }
+    menu ul {
+        flex-direction:row;    
+    }
+    .hamburger{
+        display: none;
     }
 }
