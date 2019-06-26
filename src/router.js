@@ -1,5 +1,5 @@
-import {components} from "./view/components.js";
-import { userData } from "./view/view-controller.js";
+import {components} from './view/components.js';
+import { userData } from './view/view-controller.js';
 
 
 const changeTmp = (hash) => {

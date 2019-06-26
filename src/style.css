@@ -8,22 +8,20 @@
 body {
      min-height: 100vh; 
      /*padding: 1%;*/ 
-     background: #ffffff  
-    
+     background: #ffffff;   
        
 }  
 
 .con-gen-post {
     width:100% ;
-    padding: 1rem;
     display: block;
     text-align: center;
 }
 .contenedor-post {
     background: rgb(245, 245, 244);
     padding: 0.1rem;
-    margin: 0.5rem;
     border: 1px solid rgb(73, 70, 70);
+    margin-bottom: 1.5rem;
     
 }
 /*
@@ -57,7 +55,7 @@ button {
     padding: 0.5rem;
     border-radius: 0.6rem;
     border: 0;
-    background: rgb(240, 96, 139);
+    background: #F40047;
     color: rgb(243, 243, 230);
     
 }
@@ -141,7 +139,6 @@ h3 {
 }
 .user {
     display: flex;
-    margin: 2rem;
     justify-content: center;
 }
 .estilo-textarea {
@@ -153,7 +150,7 @@ h3 {
 .header-post{
     padding: 0.3rem;
     height: 3rem;
-    background: rgb(118, 247, 219);
+    background: rgb(169, 243, 237);
     display: flex !important;
     justify-content: space-between !important;
 
@@ -186,6 +183,7 @@ h3 {
 }
 .hamburger {
     display: block;
+    cursor: pointer;
 
 }
 header {
@@ -212,8 +210,7 @@ header label:hover {
     position: absolute;
     background: rgb(97, 255, 255);
     width: 40%;
-    margin-left: -60%;
-    
+    margin-left: -60%;   
     
 }
 menu ul {
@@ -238,13 +235,15 @@ nav ul li {
     }
     .screen-welcome {
         display: flex;
+        padding: 5% 10%;
     }
     .user{
         width: 30%;
     }
     .screen-post {
         width: 70%;
-        padding: 5%;
+        padding: 0 2rem;
+        
     }
    
     #sign-out1 {
@@ -267,7 +266,6 @@ nav ul li {
     }
     .create-post {
         display: block;
-        padding: 0 10%;
         width: 100%;
         text-align:center;
     }

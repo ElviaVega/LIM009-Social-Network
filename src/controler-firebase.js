@@ -40,7 +40,7 @@ export const userActiv = (callback) => {
       //console.log(user)
     } else {
       // No user is signed in.
-      return("no hay usuario activo")
+      return('no hay usuario activo')
 
       }
      */ 
@@ -51,13 +51,14 @@ export const userActiv = (callback) => {
 /* obtener el usuario activo desde coleccion users */
 
 export const userFirestore = (id) => {
-   return firebase.firestore().collection("users").doc(id).get();
+   return firebase.firestore().collection('users').doc(id).get();
 };
 
 /* Obtener los datos desde la colección de firestore */
 
 export const getPost =(callback) => {
   firebase.firestore().collection('post')
+  .orderBy('date', 'desc')
   .onSnapshot((querySnapshot) => {
     const data = [];
     querySnapshot.forEach((doc) => {
@@ -74,7 +75,7 @@ export const getPost =(callback) => {
   
 /* enviando post a coleccion de post */
 export const setPost = (obj) =>{
-  return firebase.firestore().collection("post").add(obj)
+  return firebase.firestore().collection('post').add(obj)
 }
 
 /*leer datos de la coleccion  */
@@ -87,16 +88,16 @@ export const setPost = (obj) =>{
 /* borrar post */
 
 export const deletePost = (idPost) => {
-  return firebase.firestore().collection("post").doc(idPost).delete()
+  return firebase.firestore().collection('post').doc(idPost).delete()
 }
 
 /* editando post */
 
 export const editPost = (idPost, newPost) => {
   console.log(newPost)
-  var postRef = firebase.firestore().collection("post").doc(idPost);
+  var postRef = firebase.firestore().collection('post').doc(idPost);
 
-  // Set the "capital" field of the city 'DC'
+  // Set the 'capital' field of the city 'DC'
   return postRef.update({
       post: newPost
   })
@@ -106,7 +107,7 @@ export const editPost = (idPost, newPost) => {
 /* editando visibilidad de post */
 
 export const editVisibilityPost = (idPost, newVisibility) => {
-  var postRef = firebase.firestore().collection("post").doc(idPost);
+  var postRef = firebase.firestore().collection('post').doc(idPost);
   return postRef.update({
       visibility: newVisibility
   })

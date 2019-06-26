@@ -58,7 +58,7 @@ export const signUpUser = () => {
           id: result.user.uid,
           name: name,
           email: result.user.email,
-          photo: "http://icons.iconarchive.com/icons/papirus-team/papirus-status/256/avatar-default-icon.png"
+          photo: 'http://icons.iconarchive.com/icons/papirus-team/papirus-status/256/avatar-default-icon.png'
         })
       })
       .catch((error) => {
@@ -150,7 +150,7 @@ export const sendToCollection = (userData, post, visibility) => {
       
     })
     .catch(function (error) {
-      console.error("Error adding document: ", error);
+      console.error('Error adding document: ', error);
     });
     
 }
@@ -158,7 +158,7 @@ export const sendToCollection = (userData, post, visibility) => {
 /* Leer y pintar los post en pantalla */
 
 export const showPost = () => {
-  //readData("post")
+  //readData('post')
   //const post1 = document.querySelector(post1)
   querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().post}`);
@@ -186,26 +186,26 @@ export const userData = (cb) => {
 export const deletePostUser = (idPost) => {
   deletePost(idPost)
   .then(() => {
-    console.log("Document successfully deleted!");
+    console.log('Document successfully deleted!');
   }).catch((error) => {
-    console.error("Error removing document: ", error);
+    console.error('Error removing document: ', error);
   });
 }
 /* editar un post */
 
 export const editPostUser = (idPost,textPost, btnEditar) => {
   textPost.disabled = false;
-  btnEditar.innerHTML = "guardar";
+  btnEditar.innerHTML = 'guardar';
   btnEditar.addEventListener('click', () => {
     let newPost = textPost.value;
     console.log(newPost)
     editPost(idPost, newPost)
       .then(() => {
-        console.log("Document successfully updated!");
+        console.log('Document successfully updated!');
       })
       .catch(function(error) {
         // The document probably doesn't exist.
-        console.error("Error updating document: ", error);
+        console.error('Error updating document: ', error);
       });
 
     })

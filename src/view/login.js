@@ -1,28 +1,28 @@
-import { logInOnSubmit, logInGoogle } from "./view-controller.js";
+import { logInOnSubmit, logInGoogle } from './view-controller.js';
 
 export default () => {
-  const formLogin  = document.createElement("div");
+  const formLogin  = document.createElement('div');
   formLogin.className='contenedor-login'
   const tmpLogin = `    
-    <div class="login1">
-        <img src="./imagen/travel-worl.jpg" class="logo logo-desktop">
+    <div class='login1'>
+        <img src='./imagen/travel-worl.jpg' class='logo logo-desktop'>
     </div>
-    <div class="login2">
+    <div class='login2'>
       <div>
-        <img src="./imagen/logo-maleta.jpg" class="logo-maleta centrar"
+        <img src='./imagen/logo-maleta.jpg' class='logo-maleta centrar'
       </div>
-      <h3 class="centrar"> ¡BIENVENID@ VIAJER@! </h3>
+      <h3 class='centrar'> ¡BIENVENID@ VIAJER@! </h3>
     
       <form class='form-login centrar'>
         <input type='email' id='email' placeholder ='Email' class='block centrar'/>
         <input type='password' id='password' placeholder ='Password' class='block centrar'/>
         <button type='button' id='btn-login' class='block centrar boton-login'>Log in</button>
         <p id='error'></p>
-        <p class="centrar" > O bien ingresa con: </p>
+        <p class='centrar' > O bien ingresa con: </p>
         <a  id='btn-google'>
-          <img src='./imagen/logo-google.png' alt="Google" class='logo-google'>
+          <img src='./imagen/logo-google.png' alt='Google' class='logo-google'>
         </a>		
-        <p>¿No  tienes una cuenta? <span><a href="#/register">Regístrate</a></span></p>
+        <p>¿No  tienes una cuenta? <span><a href='#/register'>Regístrate</a></span></p>
       </form>
     </div>
     `

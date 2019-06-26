@@ -1,15 +1,15 @@
 import {signUpUser} from './view-controller.js';
 
 export default () => {
-    const formRegister  = document.createElement("div");
+    const formRegister  = document.createElement('div');
     formRegister.className='contenedor-login'
     const tmpRegister = `
-    <div class="login1">
-        <img src="./imagen/travel-worl.jpg" class="logo logo-desktop">
+    <div class='login1'>
+        <img src='./imagen/travel-worl.jpg' class='logo logo-desktop'>
     </div>
-    <div class="login2">
+    <div class='login2'>
       <div>
-        <img src="./imagen/logo-maleta.jpg" class="logo-maleta centrar"
+        <img src='./imagen/logo-maleta.jpg' class='logo-maleta centrar'
       </div> 
         <form class='form-login centrar'>
             <input type='text' id='name' placeholder ='Nombre y apellido' class='block centrar'/>
