@@ -48,9 +48,9 @@ export default (user) => {
     posts.forEach((post)=> {
     //console.log(post)
     const postElem = showPost(post,user)
-    if(post.visibility === 'Todos'){                                    
+    if(post.visibility === 'Publico'){                                    
       contenedorPost.appendChild(postElem)
-    } else if(post.visibility === 'Solo yo' && user.id === post.idUser){
+    } else if(post.visibility === 'Privado' && user.id === post.idUser){
       contenedorPost.appendChild(postElem)}
       })
     })

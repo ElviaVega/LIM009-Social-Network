@@ -134,15 +134,19 @@ h3 {
     display: block;
     text-align: center;
 }
+.screen-welcome {
+    padding: 3rem;
+}
 .welcomw-maleta {
     width: 10rem;
 }
 .user {
     display: flex;
     justify-content: center;
+    margin-bottom: 3rem;
 }
 .estilo-textarea {
-    width: 85%;
+    width: 100%;
     padding: 1rem;
     height: 5rem;
     border: 1.5px solid #5e5a5a;
@@ -153,6 +157,7 @@ h3 {
     background: rgb(169, 243, 237);
     display: flex !important;
     justify-content: space-between !important;
+    align-items: center;
 
 }
 .post-pub {
@@ -165,6 +170,8 @@ h3 {
 }
 .create-post {
     display: block;
+    width: 100%;
+    margin-bottom: 3rem;
     
 }
 #sign-out1 {

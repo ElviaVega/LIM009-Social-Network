@@ -10,11 +10,11 @@ export default (user) => {
             <textarea id ='post' placeholder = '¿Que quieres compartir?' name='texto' spellcheck='true' class='estilo-textarea'></textarea>
             
             <select id='visibility'>
-                <option value='' disabled selected>Compartir con</option>
-                <option value='Todos'>Todos</option>
-                <option value='Solo yo'>Solo yo</option>
+                <option value='' disabled selected>Privacidad</option>
+                <option value='Publico'>Publico</option>
+                <option value='Privado'>Privado</option>
             </select>
-            <button  id='btn-compartir' type = 'button' class='btn-enviar' > Publicar </button>
+            <button  id='btn-compartir' type = 'button' class='btn-enviar' > Compartir </button>
             
         </form>
                

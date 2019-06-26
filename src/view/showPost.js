@@ -21,9 +21,9 @@ export default (post,user) => {
             ${post.idUser === user.id ? `
             <button type = 'button' class='btn-editar' > Editar </button> 
             <select id='visibility'>
-                <option value='' disabled selected> compartir con</option>
-                <option value='Todos'>Todos</option>
-                <option value='Solo yo'>solo yo</option>
+                <option value='' disabled selected> Privacidad </option>
+                <option value='Publico'>Publico</option>
+                <option value='Privado'>Privado</option>
             </select>`: ''}
            
             <button id='btn-like' type = 'button'><i style='font-size:24px' class='far'> &#xf004</i> </button> 
